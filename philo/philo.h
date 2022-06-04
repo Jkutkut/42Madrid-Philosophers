@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 23:36:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 00:16:23 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@
 
 // ******** Custom structs ********
 
-typedef struct s_philo
-{
-	int	id;
-}	t_philo;
-
-
 typedef struct s_main
 {
 	int				n_philo;
@@ -52,10 +46,19 @@ typedef struct s_main
 	int				result_code;
 
 	pthread_mutex_t	print_mtx;
-	t_philo			*philos;
+	struct s_philo	*philos;
 	int				*sb_died;
 
-} t_main;
+}	t_main;
+
+typedef struct s_philo
+{
+	t_main	*info;
+	pthread_t		thread_id;
+	pthread_mutex_t	fork_mtx;
+	int	id;
+	int	n_eat;
+}	t_philo;
 
 
 // ******** Custom functions ********
@@ -82,6 +85,7 @@ int	set_natural(char *str, int *natural);
 
 # define ERROR_ARGS "./philo <philos> <t_d1ie> <t_eat> <t_sleep> [times]\n"
 # define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
+# define ERROR_MALLOC "\n"
 
 // ******** Custom colors ********
 
