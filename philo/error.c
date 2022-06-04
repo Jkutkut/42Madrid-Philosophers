@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 19:54:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 19:56:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:41:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int	error(int error_code)
 		printf(ERROR_ARGS);
 	else if (error_code == ERROR_NANATURAL_CODE)
 		printf(ERROR_NANATURAL);
+	else if (error_code == ERROR_MALLOC_CODE)
+		printf(ERROR_MALLOC);
 	return (error_code);
 }

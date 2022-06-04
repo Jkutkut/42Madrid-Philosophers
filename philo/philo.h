@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 20:01:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/04 23:36:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,25 @@
 
 // ******** Custom structs ********
 
+typedef struct s_philo
+{
+	int	id;
+}	t_philo;
+
+
 typedef struct s_main
 {
-	int	n_philo;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	n_times;
-	int	result_code;
+	int				n_philo;
+	int				t_die;
+	int				t_eat;
+	int				t_sleep;
+	int				n_times;
+	int				result_code;
+
+	pthread_mutex_t	print_mtx;
+	t_philo			*philos;
+	int				*sb_died;
+
 } t_main;
 
 
@@ -56,12 +67,16 @@ int	set_natural(char *str, int *natural);
 
 // ******** Custom values ********
 
+# define TRUE 1
+# define FALSE 0
+
 # define PHEUDO_INFINITE -1
 
 // Result values
 # define SUCCESS 0
 # define ERROR_ARGS_CODE 1
 # define ERROR_NANATURAL_CODE 2
+# define ERROR_MALLOC_CODE 3
 
 // ******** Custom messages ********
 
