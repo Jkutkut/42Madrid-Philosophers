@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 19:53:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/04 20:01:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ typedef struct s_main
 
 // ******** Custom functions ********
 
+int	error(int error_code);
 int	ft_atoi(char *str);
+int	proccess_args(t_main *info, int argc, char **argv);
+int	set_natural(char *str, int *natural);
 
 // ******** Custom values ********
 

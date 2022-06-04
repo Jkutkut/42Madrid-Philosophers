@@ -17,7 +17,10 @@ COMPILE		=	$(CC) $(FLAGS)
 
 NAME		=	philo
 
-TOOLS		=	ft_atoi.c
+TOOLS		=	error.c \
+				ft_atoi.c \
+				proccess_args.c \
+				set_natural.c
 
 SRCS		=	$(NAME).c \
 				${TOOLS}
