@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 19:48:49 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/04 19:53:43 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,16 @@ typedef struct s_main
 
 int	ft_atoi(char *str);
 
-// ******** Custom messages ********
+// ******** Custom values ********
 
+# define PHEUDO_INFINITE -1
+
+// Result values
 # define SUCCESS 0
 # define ERROR_ARGS_CODE 1
-# define ERROR_NAN_CODE 2
+# define ERROR_NANATURAL_CODE 2
+
+// ******** Custom messages ********
 
 # define ERROR_ARGS "./philo <philos> <t_d1ie> <t_eat> <t_sleep> [times]\n"
 # define ERROR_NANATURAL "All arguments must be positive integers > 0\n"

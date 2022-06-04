@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 19:49:18 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/04 19:53:50 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	error(int error_code)
 		printf("%sPhilo error%s:\n  ", RED, NC);
 	if (error_code == ERROR_ARGS_CODE)
 		printf(ERROR_ARGS);
-	else if (error_code == ERROR_NAN_CODE)
+	else if (error_code == ERROR_NANATURAL_CODE)
 		printf(ERROR_NANATURAL);
 	return (error_code);
 }
@@ -27,7 +27,7 @@ int	set_natural(char *str, int *natural)
 {
 	*natural = ft_atoi(str);
 	if (*natural <= 0)
-		return (ERROR_NAN_CODE);
+		return (ERROR_NANATURAL_CODE);
 	return (SUCCESS);
 }
 
@@ -39,9 +39,9 @@ int	proccess_args(int argc, char **argv, t_main *info)
 	info->result_code = ERROR_ARGS_CODE;
 	if (argc < 5 || argc > 6)
 		return (ERROR_ARGS_CODE);
-	info->n_times = -1;
-	i = 0;
+	info->n_times = PHEUDO_INFINITE;
 	arguments = (int *) info;
+	i = 0;
 	while (i++ < argc - 1)
 	{
 		info->result_code = set_natural(argv[i], &arguments[i - 1]);
