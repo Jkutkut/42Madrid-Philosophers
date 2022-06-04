@@ -17,10 +17,10 @@ COMPILE		=	$(CC) $(FLAGS)
 
 NAME		=	philo
 
-TOOLS		=	philo.c
+TOOLS		=	ft_atoi.c
 
 SRCS		=	$(NAME).c \
-				${TOOLS:%=tools/%}
+				${TOOLS}
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
@@ -47,7 +47,7 @@ $(NAME):	$(LIB) $(OBJS)
 	@$(COMPILE) $(OBJS) $(LIB) -o $(NAME)
 	@echo "${LGREEN} [OK]${NC}\n"
 
-bin/%.o: src/%.c
+bin/%.o: %.c
 	@echo "- ${TITLE}Compiling${NC} $< -> $@\c"
 	@mkdir -p $(dir $@)
 	@$(COMPILE) -c $< -o $@ $(DEBUG)
