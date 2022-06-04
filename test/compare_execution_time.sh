@@ -27,11 +27,13 @@ run_test() {
 	echo "Test $test_name: done"
 }
 
+gcc -Wall -Wextra -Werror measure_time.c -o measure_time
+
 name1="original"
 name2="optimized"
 
-cmd1="./a.out 1"
-cmd2="./a.out"
+cmd1="./measure_time original"
+cmd2="./measure_time optimized"
 
 times2run=1000
 
@@ -43,8 +45,9 @@ rm -f $result1 $result2
 echo $name1 > $result1
 echo $name2 > $result2
 
-run_test "$name1" "$cmd1" "$times2run" "$result1"
-run_test "$name2" "$cmd2" "$times2run" "$result2"
+run_test "$name1" "$cmd1" "$times2run" "$result1" &
+run_test "$name2" "$cmd2" "$times2run" "$result2" &
 
 wait
+echo "Done"
 
