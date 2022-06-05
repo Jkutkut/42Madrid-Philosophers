@@ -22,9 +22,12 @@ TOOLS		=	actions.c \
 				error.c \
 				ft_atoi.c \
 				init_simulation.c \
+				live.c \
 				now.c \
+				print_state.c \
 				proccess_args.c \
-				set_natural.c
+				set_natural.c \
+				simulation_ended.c
 
 SRCS		=	$(NAME).c \
 				${TOOLS}

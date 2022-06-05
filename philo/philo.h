@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:51:57 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 17:16:22 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,7 @@ void	end_simulation(t_simulation *info);
 int		error(int error_code);
 int		ft_atoi(char *str);
 int		init_simulation(t_simulation *info);
-
 void	*live(void *p);
-
 long	now(void);
 int		proccess_args(t_simulation *info, int argc, char **argv);
 int		set_natural(char *str, int *natural);

@@ -6,47 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:50:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 17:43:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	print_state(t_philo *philo, char *msg)
-{
-	pthread_mutex_lock(&philo->info->print_mtx);
-	printf(msg, 0, philo->id);
-	pthread_mutex_unlock(&philo->info->print_mtx);
-}
-
-int	simulation_ended(t_philo *philo)
-{
-	if (philo->info->sb_died)
-		return (TRUE);
-	if (philo->n_eat == philo->info->n_times)
-		return (TRUE);
-	// If philo should die because of starvation
-		// anounce dead
-		// update info to end the rest of the simulation
-		// return TRUE
-	return (FALSE);
-}
-
-void	*live(void *p)
-{
-	t_philo	*philo;
-
-	philo = (t_philo *) p;
-	printf("Philosopher %d is alive\n", philo->id);
-	while (1)
-	{
-		if (simulation_ended(philo))
-			break;
-		philo->info->actions[philo->state](philo);
-	}
-	printf("Philosopher %d's simulation ended\n", philo->id);
-	return (NULL);
-}
 
 int	main(int argc, char **argv)
 {
