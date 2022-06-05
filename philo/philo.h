@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 20:21:54 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 22:46:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,10 @@ int		init_simulation(t_simulation *info);
 void	*live(void *p);
 long	now(void);
 int		proccess_args(t_simulation *info, int argc, char **argv);
+void	return_forks(t_philo *philo);
 int		set_natural(char *str, int *natural);
 int		simulation_ended(t_philo *philo);
+void	take_forks(t_philo *philo);
 
 // ******** Custom values ********
 

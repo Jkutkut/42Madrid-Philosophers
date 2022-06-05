@@ -30,8 +30,10 @@ TOOLS		=	actions.c \
 				philo_think.c \
 				print_state.c \
 				proccess_args.c \
+				return_forks.c \
 				set_natural.c \
-				simulation_ended.c
+				simulation_ended.c \
+				take_forks.c
 
 SRCS		=	$(NAME).c \
 				${TOOLS}
