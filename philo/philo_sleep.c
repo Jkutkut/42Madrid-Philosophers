@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   philo_sleep.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 16:24:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:07:31 by jre-gonz         ###   ########.fr       */
+/*   Created: 2022/06/05 18:06:08 by jre-gonz          #+#    #+#             */
+/*   Updated: 2022/06/05 18:06:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	philo_eat(t_philo *philo)
+/**
+ * @brief Function to simulate the sleep of a philosopher.
+ * 
+ * @param philo Philosopher to simulate.
+ */
+void	philo_sleep(t_philo *philo)
 {
-	print_state(philo, FORK_MSG);
-	print_state(philo, EAT_MSG);
-	// TODO: eat
-	// philo->n_eat++;
-	delay(philo->info->t_eat);
-	philo->state = THINKING;
+	print_state(philo, SLEEP_MSG);
+	delay(philo->info->t_sleep);
+	philo->state = EATING;
 }
