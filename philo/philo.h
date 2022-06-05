@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 14:14:50 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 15:38:44 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 
 // ******** Custom structs ********
 
-typedef struct s_main
+typedef struct s_simulation
 {
 	int				n_philo;
 	int				t_die;
@@ -50,11 +50,11 @@ typedef struct s_main
 	int				*sb_died;
 	void	(*actions[3])(struct s_philo *);
 
-}	t_main;
+}	t_simulation;
 
 typedef struct s_philo
 {
-	t_main	*info;
+	t_simulation	*info;
 	pthread_t		thread_id;
 	pthread_mutex_t	fork_mtx;
 	int	id;
@@ -66,12 +66,12 @@ typedef struct s_philo
 
 // ******** Custom functions ********
 
-void	end_simulation(t_main *info);
+void	end_simulation(t_simulation *info);
 int		error(int error_code);
 int		ft_atoi(char *str);
-int		init_simulation(t_main *info);
+int		init_simulation(t_simulation *info);
 long	now(void);
-int		proccess_args(t_main *info, int argc, char **argv);
+int		proccess_args(t_simulation *info, int argc, char **argv);
 int		set_natural(char *str, int *natural);
 
 // ******** Custom values ********

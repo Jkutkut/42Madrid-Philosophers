@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:10:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 14:11:01 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 15:24:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * 
  * @param info Structure with all the information about the philosophers.
  */
-void	end_simulation(t_main *info)
+void	end_simulation(t_simulation *info)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 14:13:25 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 15:24:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*live(void *p)
 	return (NULL);
 }
 
-int	init_simulation(t_main *info)
+int	init_simulation(t_simulation *info)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ int	init_simulation(t_main *info)
 
 int	main(int argc, char **argv)
 {
-	t_main	info;
+	t_simulation	info;
 
 	if (proccess_args(&info, argc, argv) != SUCCESS)
 		return (error(info.result_code));

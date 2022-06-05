@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:13:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 14:14:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 15:25:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param info Structure with all the information about the philosophers.
  * @return int SUCCESS if everything went well, ERROR code if there was any.
  */
-int	init_simulation(t_main *info)
+int	init_simulation(t_simulation *info)
 {
 	int	i;
 
