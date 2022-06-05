@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 22:46:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 23:07:12 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,26 +69,34 @@ typedef struct s_philo
 
 // ******** Custom functions ********
 
+// Simulation
+int		proccess_args(t_simulation *info, int argc, char **argv);
+int		init_simulation(t_simulation *info);
+void	end_simulation(t_simulation *info);
+
+// Philo
+void	*live(void *p);
+int		simulation_ended(t_philo *philo);
+
 // Actions
 void	philo_eat(t_philo *philo);
 void	philo_think(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 
+// Forks
+void	take_forks(t_philo *philo);
+void	return_forks(t_philo *philo);
+void	drop_all_forks(t_simulation *info);
+
+// Print
+int		error(int error_code);
 void	print_state(t_philo *philo, char *msg, char *color);
 
-void	delay(long ms);
-void	drop_all_forks(t_simulation *info);
-void	end_simulation(t_simulation *info);
-int		error(int error_code);
-int		ft_atoi(char *str);
-int		init_simulation(t_simulation *info);
-void	*live(void *p);
+// Tools
 long	now(void);
-int		proccess_args(t_simulation *info, int argc, char **argv);
-void	return_forks(t_philo *philo);
+void	delay(long ms);
+int		ft_atoi(char *str);
 int		set_natural(char *str, int *natural);
-int		simulation_ended(t_philo *philo);
-void	take_forks(t_philo *philo);
 
 // ******** Custom values ********
 
