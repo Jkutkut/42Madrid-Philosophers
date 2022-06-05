@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 00:16:23 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 13:12:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,18 @@ typedef struct s_philo
 	pthread_mutex_t	fork_mtx;
 	int	id;
 	int	n_eat;
+	int	state;
+	int	l_meal;
 }	t_philo;
 
 
 // ******** Custom functions ********
 
-int	error(int error_code);
-int	ft_atoi(char *str);
-int	proccess_args(t_main *info, int argc, char **argv);
-int	set_natural(char *str, int *natural);
+int		error(int error_code);
+int		ft_atoi(char *str);
+long	now(void);
+int		proccess_args(t_main *info, int argc, char **argv);
+int		set_natural(char *str, int *natural);
 
 // ******** Custom values ********
 
@@ -74,6 +77,11 @@ int	set_natural(char *str, int *natural);
 # define FALSE 0
 
 # define PHEUDO_INFINITE -1
+
+// Philosopher's states
+# define EATING 0
+# define THINKING 1
+# define SLEEPING 2
 
 // Result values
 # define SUCCESS 0

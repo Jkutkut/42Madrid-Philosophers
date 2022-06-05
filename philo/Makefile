@@ -19,6 +19,7 @@ NAME		=	philo
 
 TOOLS		=	error.c \
 				ft_atoi.c \
+				now.c \
 				proccess_args.c \
 				set_natural.c
 
