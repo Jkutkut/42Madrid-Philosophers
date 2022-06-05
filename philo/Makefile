@@ -20,6 +20,7 @@ NAME		=	philo
 TOOLS		=	end_simulation.c \
 				error.c \
 				ft_atoi.c \
+				init_simulation.c \
 				now.c \
 				proccess_args.c \
 				set_natural.c
