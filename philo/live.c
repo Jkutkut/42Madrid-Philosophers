@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:16:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 20:09:25 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:15:26 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	*live(void *p)
 	philo = (t_philo *) p;
 	print_philo_msg(philo, START_MSG);
 	philo->l_meal = now();
+	if (philo->id % 2)
+		delay(philo->info->t_sleep >> 1);
 	while (1)
 	{
 		if (simulation_ended(philo))
