@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:13:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 15:25:02 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:16:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ int	init_simulation(t_simulation *info)
 		info->philos[i].state = EATING;
 		info->philos[i].l_meal = now();
 		pthread_create(&info->philos[i].thread_id, NULL, &live, &info->philos[i]);
+	}
+	{
+		usleep(1000);
+		info->sb_died = TRUE; // TODO remove this block
 	}
 	return (SUCCESS);
 }

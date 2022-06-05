@@ -6,51 +6,40 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 15:24:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:16:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	simulation_ended(t_philo *philo)
+{
+	if (philo->info->sb_died)
+		return (TRUE);
+	if (philo->n_eat == philo->info->n_times)
+		return (TRUE);
+	// If philo should die because of starvation
+		// anounce dead
+		// update info to end the rest of the simulation
+		// return TRUE
+	return (FALSE);
+}
 
 void	*live(void *p)
 {
 	t_philo	*philo;
 
 	philo = (t_philo *) p;
+	printf("Philosopher %d is alive\n", philo->id);
 	while (1)
 	{
-		if (philo->n_eat == philo->info->n_times)
+		if (simulation_ended(philo))
 			break;
-		printf("Philosopher %d is alive\n", philo->id);
-		break;
+		printf("Philosopher %d is thinking\n", philo->id);
+		// philo->info->actions[philo->state](philo);
 	}
+	printf("Philosopher %d's simulation ended\n", philo->id);
 	return (NULL);
-}
-
-int	init_simulation(t_simulation *info)
-{
-	int	i;
-
-	pthread_mutex_init(&info->print_mtx, NULL);
-	info->sb_died = FALSE;
-	info->philos = (t_philo *) malloc(sizeof(t_philo) * info->n_philo);
-	if (info->philos == NULL)
-	{
-		info->result_code = ERROR_MALLOC_CODE;
-		return (info->result_code);
-	}
-	i = -1;
-	while (++i < info->n_philo)
-	{
-		info->philos[i].id = i;
-		info->philos[i].n_eat = 0;
-		info->philos[i].info = info;
-		pthread_mutex_init(&info->philos[i].fork_mtx, NULL);
-		info->philos[i].state = EATING;
-		info->philos[i].l_meal = now();
-		pthread_create(&info->philos[i].thread_id, NULL, &live, &info->philos[i]);
-	}
-	return (SUCCESS);
 }
 
 int	main(int argc, char **argv)

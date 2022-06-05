@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 15:38:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:15:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_simulation
 
 	pthread_mutex_t	print_mtx;
 	struct s_philo	*philos;
-	int				*sb_died;
+	int				sb_died;
 	void	(*actions[3])(struct s_philo *);
 
 }	t_simulation;
@@ -70,6 +70,9 @@ void	end_simulation(t_simulation *info);
 int		error(int error_code);
 int		ft_atoi(char *str);
 int		init_simulation(t_simulation *info);
+
+void	*live(void *p);
+
 long	now(void);
 int		proccess_args(t_simulation *info, int argc, char **argv);
 int		set_natural(char *str, int *natural);
