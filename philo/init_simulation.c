@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:13:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:01:35 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:09:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	init_simulation(t_simulation *info)
 		info->philos[i].info = info;
 		pthread_mutex_init(&info->philos[i].fork_mtx, NULL);
 		info->philos[i].state = EATING;
-		info->philos[i].l_meal = now();
 		pthread_create(&info->philos[i].thread_id, NULL, &live, &info->philos[i]);
 	}
 	return (SUCCESS);

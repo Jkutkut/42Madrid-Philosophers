@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 19:31:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:08:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ typedef struct s_philo
 	t_simulation	*info;
 	pthread_t		thread_id;
 	pthread_mutex_t	fork_mtx;
-	int	id;
-	int	n_eat;
-	int	state;
-	int	l_meal;
+	int				id;
+	int				n_eat;
+	int				state;
+	long			l_meal;
 }	t_philo;
 
 
@@ -77,6 +77,7 @@ void	philo_sleep(t_philo *philo);
 void	print_state(t_philo *philo, char *msg, char *color);
 
 void	delay(long ms);
+void	drop_all_forks(t_simulation *info);
 void	end_simulation(t_simulation *info);
 int		error(int error_code);
 int		ft_atoi(char *str);

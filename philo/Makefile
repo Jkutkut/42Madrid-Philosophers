@@ -19,6 +19,7 @@ NAME		=	philo
 
 TOOLS		=	actions.c \
 				delay.c \
+				drop_all_forks.c \
 				end_simulation.c \
 				error.c \
 				ft_atoi.c \

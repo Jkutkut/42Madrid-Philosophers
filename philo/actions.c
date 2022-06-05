@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 16:24:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 19:30:32 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 19:55:06 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	drop_forks(t_philo *philo)
 void	philo_eat(t_philo *philo)
 {
 	take_forks(philo);
+	if (simulation_ended(philo))
+		return ;
 	print_state(philo, EAT_MSG, EAT_COLOR);
 	delay(philo->info->t_eat);
 	philo->n_eat++;
