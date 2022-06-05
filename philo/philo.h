@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 20:08:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:21:54 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,10 @@ int		simulation_ended(t_philo *philo);
 
 // States
 # define FORK_MSG  "[%s%05d%s] philo %d %shas taken a fork%s.\n"
-# define EAT_MSG   "[%s%05d%s] philo %d %sis eating%s.\n"
-# define THINK_MSG "[%s%05d%s] philo %d %sis thinking%s.\n"
-# define SLEEP_MSG "[%s%05d%s] philo %d %sis sleeping%s.\n"
-# define DIE_MSG   "[%s%05d%s] philo %d %shas died%s.\n"
+# define EAT_MSG   "[%s%05d%s] philo %d is %seating%s.\n"
+# define THINK_MSG "[%s%05d%s] philo %d is %sthinking%s.\n"
+# define SLEEP_MSG "[%s%05d%s] philo %d is %ssleeping%s.\n"
+# define DIE_MSG   "[%s%05d%s] philo %d has %sdied%s.\n"
 
 # define START_MSG "Philosopher %s%d%s is %salive%s\n"
 # define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
