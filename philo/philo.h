@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:15:18 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:30:43 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ typedef struct s_philo
 
 
 // ******** Custom functions ********
+
+// Actions
+void	philo_eat(t_philo *philo);
+void	philo_think(t_philo *philo);
+void	philo_sleep(t_philo *philo);
+
 
 void	end_simulation(t_simulation *info);
 int		error(int error_code);

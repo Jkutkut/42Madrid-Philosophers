@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:13:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:16:49 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:23:56 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	init_simulation(t_simulation *info)
 {
 	int	i;
 
+	info->actions[THINKING] = philo_think;
+	info->actions[EATING] = philo_eat;
+	info->actions[SLEEPING] = philo_sleep;
 	pthread_mutex_init(&info->print_mtx, NULL);
 	info->sb_died = FALSE;
 	info->philos = (t_philo *) malloc(sizeof(t_philo) * info->n_philo);

@@ -17,7 +17,8 @@ COMPILE		=	$(CC) $(FLAGS)
 
 NAME		=	philo
 
-TOOLS		=	end_simulation.c \
+TOOLS		=	actions.c \
+				end_simulation.c \
 				error.c \
 				ft_atoi.c \
 				init_simulation.c \
