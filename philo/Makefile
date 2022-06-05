@@ -17,8 +17,7 @@ COMPILE		=	$(CC) $(FLAGS)
 
 NAME		=	philo
 
-TOOLS		=	actions.c \
-				delay.c \
+TOOLS		=	delay.c \
 				drop_all_forks.c \
 				end_simulation.c \
 				error.c \
@@ -26,6 +25,7 @@ TOOLS		=	actions.c \
 				init_simulation.c \
 				live.c \
 				now.c \
+				philo_eat.c \
 				philo_sleep.c \
 				philo_think.c \
 				print_state.c \
