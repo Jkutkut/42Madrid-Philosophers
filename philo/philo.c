@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 14:07:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 14:10:12 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,6 @@ int	init_main(t_main *info)
 	return (info->result_code);
 }
 
-void	end_simulation(t_main *info)
-{
-	int	i;
-
-	i = -1;
-	while (++i < info->n_philo)
-		pthread_join(info->philos[i].thread_id, NULL);
-	free(info->philos);
-}
-
 int	main(int argc, char **argv)
 {
 	t_main	info;
@@ -75,6 +65,5 @@ int	main(int argc, char **argv)
 	if (init_main(&info) != SUCCESS)
 		return (error(info.result_code));
 	end_simulation(&info);
-	
 	return (0);
 }
