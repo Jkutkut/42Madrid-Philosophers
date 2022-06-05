@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 19:03:27 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 19:31:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int		simulation_ended(t_philo *philo);
 # define DIE_MSG   "[%s%05d%s] philo %d %shas died%s.\n"
 
 # define START_MSG "Philosopher %s%d%s is %salive%s\n"
-# define END_MSG "Philosopher %s%d%s simulation %sended%s\n"
+# define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
 
 // ******** Custom colors ********
 
