@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 17:16:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:00:37 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ typedef struct s_simulation
 	int				t_eat;
 	int				t_sleep;
 	int				n_times;
+
 	int				result_code;
+
+	long			t0;
 
 	pthread_mutex_t	print_mtx;
 	struct s_philo	*philos;
@@ -73,7 +76,7 @@ void	philo_sleep(t_philo *philo);
 
 void	print_state(t_philo *philo, char *msg);
 
-
+void	delay(long ms);
 void	end_simulation(t_simulation *info);
 int		error(int error_code);
 int		ft_atoi(char *str);
@@ -82,6 +85,7 @@ void	*live(void *p);
 long	now(void);
 int		proccess_args(t_simulation *info, int argc, char **argv);
 int		set_natural(char *str, int *natural);
+int		simulation_ended(t_philo *philo);
 
 // ******** Custom values ********
 

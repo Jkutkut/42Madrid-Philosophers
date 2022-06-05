@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:13:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:23:56 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:01:35 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	init_simulation(t_simulation *info)
 		info->result_code = ERROR_MALLOC_CODE;
 		return (info->result_code);
 	}
+	info->t0 = now();
 	i = -1;
 	while (++i < info->n_philo)
 	{
@@ -43,10 +44,6 @@ int	init_simulation(t_simulation *info)
 		info->philos[i].state = EATING;
 		info->philos[i].l_meal = now();
 		pthread_create(&info->philos[i].thread_id, NULL, &live, &info->philos[i]);
-	}
-	{
-		usleep(1000);
-		info->sb_died = TRUE; // TODO remove this block
 	}
 	return (SUCCESS);
 }
