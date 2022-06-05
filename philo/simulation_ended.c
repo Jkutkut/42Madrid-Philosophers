@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:08:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 17:09:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 22:50:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int	simulation_ended(t_philo *philo)
 		return (TRUE);
 	if (philo->n_eat == philo->info->n_times)
 		return (TRUE);
-	// If philo should die because of starvation
-		// anounce dead
-		// update info to end the rest of the simulation
-		// return TRUE
+	if (now() - philo->l_meal >= philo->info->t_die)
+	{
+		philo->info->sb_died = TRUE;
+		print_state(philo, DIE_MSG, DIE_COLOR);
+		drop_all_forks(philo->info);
+		return (TRUE);
+	}
 	return (FALSE);
 }

@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:16:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 20:15:26 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 22:49:44 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,6 @@ void	*live(void *p)
 	{
 		if (simulation_ended(philo))
 			break;
-		if (now() - philo->l_meal > philo->info->t_die)
-		{
-			philo->info->sb_died = TRUE;
-			print_state(philo, DIE_MSG, DIE_COLOR);
-			drop_all_forks(philo->info);
-			break;
-		}
 		philo->info->actions[philo->state](philo);
 	}
 	print_philo_msg(philo, END_MSG);
