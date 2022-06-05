@@ -25,6 +25,8 @@ TOOLS		=	actions.c \
 				init_simulation.c \
 				live.c \
 				now.c \
+				philo_sleep.c \
+				philo_think.c \
 				print_state.c \
 				proccess_args.c \
 				set_natural.c \

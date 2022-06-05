@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:07:40 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:09:45 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 18:57:35 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
  */
 void	philo_think(t_philo *philo)
 {
-	print_state(philo, THINK_MSG);
+	print_state(philo, THINK_MSG, THINK_COLOR);
 	philo->state = SLEEPING;
 }
