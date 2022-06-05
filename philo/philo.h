@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:30:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:51:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	philo_eat(t_philo *philo);
 void	philo_think(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 
+void	print_state(t_philo *philo, char *msg);
+
 
 void	end_simulation(t_simulation *info);
 int		error(int error_code);
@@ -103,9 +105,17 @@ int		set_natural(char *str, int *natural);
 
 // ******** Custom messages ********
 
+// Error messages
 # define ERROR_ARGS "./philo <philos> <t_d1ie> <t_eat> <t_sleep> [times]\n"
 # define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
 # define ERROR_MALLOC "\n"
+
+// States
+# define FORK_MSG "[%04d] philo %d has taken a fork.\n"
+# define EAT_MSG "[%04d] philo %d is eating.\n"
+# define THINK_MSG "[%04d] philo %d is thinking.\n"
+# define SLEEP_MSG "[%04d] philo %d is sleeping.\n"
+# define DIE_MSG "[%04d] philo %d has died.\n"
 
 // ******** Custom colors ********
 

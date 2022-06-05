@@ -6,11 +6,18 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 16:16:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 16:50:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	print_state(t_philo *philo, char *msg)
+{
+	pthread_mutex_lock(&philo->info->print_mtx);
+	printf(msg, 0, philo->id);
+	pthread_mutex_unlock(&philo->info->print_mtx);
+}
 
 int	simulation_ended(t_philo *philo)
 {
@@ -35,8 +42,7 @@ void	*live(void *p)
 	{
 		if (simulation_ended(philo))
 			break;
-		printf("Philosopher %d is thinking\n", philo->id);
-		// philo->info->actions[philo->state](philo);
+		philo->info->actions[philo->state](philo);
 	}
 	printf("Philosopher %d's simulation ended\n", philo->id);
 	return (NULL);
