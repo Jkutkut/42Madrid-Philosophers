@@ -6,11 +6,26 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 13:13:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/05 13:48:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	*live(void *p)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *) p;
+	while (1)
+	{
+		if (philo->n_eat == philo->info->n_times)
+			break;
+		printf("Philosopher %d is alive\n", philo->id);
+		break;
+	}
+	return (NULL);
+}
 
 int	init_main(t_main *info)
 {
@@ -30,7 +45,7 @@ int	init_main(t_main *info)
 		pthread_mutex_init(&info->philos[i].fork_mtx, NULL);
 		info->philos[i].state = EATING;
 		info->philos[i].l_meal = now();
-		// pthread_create(&info->thread_id, NULL, TODO, &info->philos[i]);
+		pthread_create(&info->philos[i].thread_id, NULL, &live, &info->philos[i]);
 	}
 	return (info->result_code);
 }
