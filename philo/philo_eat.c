@@ -6,12 +6,17 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 16:24:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 23:00:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 19:12:00 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/**
+ * @brief Function that simulates the eating of a philosopher.
+ * 
+ * @param philo Philosopher to make eat.
+ */
 void	philo_eat(t_philo *philo)
 {
 	take_forks(philo);
