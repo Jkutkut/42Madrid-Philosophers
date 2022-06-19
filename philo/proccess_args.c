@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 20:01:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 15:24:42 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:56:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	proccess_args(t_simulation *info, int argc, char **argv)
 	{
 		info->result_code = set_natural(argv[i], &arguments[i - 1]);
 		if (info->result_code != SUCCESS)
-			break;
+			break ;
 	}
 	return (info->result_code);
 }

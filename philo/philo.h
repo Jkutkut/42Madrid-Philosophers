@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/19 18:40:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:55:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 // ******** Allowed functions ********
 
 // memset
-#include <string.h>
+# include <string.h>
 
 // printf
-#include <stdio.h>
+# include <stdio.h>
 
 // malloc, free
-#include <stdlib.h>
+# include <stdlib.h>
 
 // write, usleep
-#include <unistd.h>
+# include <unistd.h>
 
 // gettimeofday
-#include <sys/time.h>
+# include <sys/time.h>
 
 // pthread_create, pthread_detach, pthread_join, pthread_mutex_init
 // pthread_mutex_destroy, pthread_mutex_lock, pthread_mutex_unlock
-#include <pthread.h>
+# include <pthread.h>
 
 // ******** Custom structs ********
 
@@ -51,7 +51,7 @@ typedef struct s_simulation
 	pthread_mutex_t	print_mtx;
 	struct s_philo	*philos;
 	int				sb_died;
-	void	(*actions[3])(struct s_philo *);
+	void			(*actions[3])(struct s_philo *);
 
 }	t_simulation;
 
@@ -65,7 +65,6 @@ typedef struct s_philo
 	int				state;
 	long			l_meal;
 }	t_philo;
-
 
 // ******** Custom functions ********
 

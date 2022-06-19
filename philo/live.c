@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:16:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 22:49:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:45:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*live(void *p)
 	while (1)
 	{
 		if (simulation_ended(philo))
-			break;
+			break ;
 		philo->info->actions[philo->state](philo);
 	}
 	print_philo_msg(philo, END_MSG);

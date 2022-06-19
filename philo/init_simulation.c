@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:13:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 20:09:49 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:52:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,34 @@
 /**
  * @brief Creates all the necessary threads and logic to make the simulation.
  * 
- * @param info Structure with all the information about the philosophers.
+ * @param inf Structure with all the information about the philosophers.
  * @return int SUCCESS if everything went well, ERROR code if there was any.
  */
-int	init_simulation(t_simulation *info)
+int	init_simulation(t_simulation *inf)
 {
 	int	i;
 
-	info->actions[THINKING] = philo_think;
-	info->actions[EATING] = philo_eat;
-	info->actions[SLEEPING] = philo_sleep;
-	pthread_mutex_init(&info->print_mtx, NULL);
-	info->sb_died = FALSE;
-	info->philos = (t_philo *) malloc(sizeof(t_philo) * info->n_philo);
-	if (info->philos == NULL)
+	inf->actions[THINKING] = philo_think;
+	inf->actions[EATING] = philo_eat;
+	inf->actions[SLEEPING] = philo_sleep;
+	pthread_mutex_init(&inf->print_mtx, NULL);
+	inf->sb_died = FALSE;
+	inf->philos = (t_philo *) malloc(sizeof(t_philo) * inf->n_philo);
+	if (inf->philos == NULL)
 	{
-		info->result_code = ERROR_MALLOC_CODE;
-		return (info->result_code);
+		inf->result_code = ERROR_MALLOC_CODE;
+		return (inf->result_code);
 	}
-	info->t0 = now();
+	inf->t0 = now();
 	i = -1;
-	while (++i < info->n_philo)
+	while (++i < inf->n_philo)
 	{
-		info->philos[i].id = i;
-		info->philos[i].n_eat = 0;
-		info->philos[i].info = info;
-		pthread_mutex_init(&info->philos[i].fork_mtx, NULL);
-		info->philos[i].state = EATING;
-		pthread_create(&info->philos[i].thread_id, NULL, &live, &info->philos[i]);
+		inf->philos[i].id = i;
+		inf->philos[i].n_eat = 0;
+		inf->philos[i].info = inf;
+		pthread_mutex_init(&inf->philos[i].fork_mtx, NULL);
+		inf->philos[i].state = EATING;
+		pthread_create(&inf->philos[i].thread_id, NULL, &live, &inf->philos[i]);
 	}
 	return (SUCCESS);
 }
