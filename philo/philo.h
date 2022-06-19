@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 23:07:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:40:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int		set_natural(char *str, int *natural);
 // ******** Custom messages ********
 
 // Error messages
-# define ERROR_ARGS "./philo <philos> <t_d1ie> <t_eat> <t_sleep> [times]\n"
+# define ERROR_ARGS "./philo <philos> <t_die> <t_eat> <t_sleep> [times]\n"
 # define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
 # define ERROR_MALLOC "\n"
 
