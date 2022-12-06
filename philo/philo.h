@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/06 12:52:10 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:42:03 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,40 @@ typedef enum e_philo_state
 	THINKING = 2
 }	t_philo_state;
 
-// Result values
+// Return values
 # define SUCCESS 0
 # define ERROR_ARGS_CODE 1
 # define ERROR_NANATURAL_CODE 2
 # define ERROR_MALLOC_CODE 3
 
+// ******** Custom messages ********
 
+// TODO
+
+// ******** Custom colors ********
+# define NC "\033[0m"
+# define S_BG "\e[1;7m"
+# define R_BG "\e[1;41m"
+# define B_BG "\e[1;44m"
+# define G_BG "\e[1;42m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define LRED "\033[1;31m"
+# define LGREEN "\033[1;32m"
+# define YELLOW "\033[1;33m"
+# define LBLUE "\033[1;34m"
+# define TITLE "\033[38;5;33m"
+
+
+// State colors
+typedef enum e_philo_state_color
+{
+	FORK_COLOR = NC,
+	EAT_COLOR = YELLOW,
+	THINK_COLOR = LGREEN,
+	SLEEP_COLOR = LBLUE,
+	DIE_COLOR = RED
+}	t_philo_state_color;
 
 
 
@@ -145,27 +172,5 @@ int		set_natural(char *str, int *natural);
 
 # define START_MSG "Philosopher %s%d%s is %salive%s\n"
 # define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
-
-// ******** Custom colors ********
-
-# define NC "\033[0m"
-# define S_BG "\e[1;7m"
-# define R_BG "\e[1;41m"
-# define B_BG "\e[1;44m"
-# define G_BG "\e[1;42m"
-# define RED "\033[0;31m"
-# define GREEN "\033[0;32m"
-# define LRED "\033[1;31m"
-# define LGREEN "\033[1;32m"
-# define YELLOW "\033[1;33m"
-# define LBLUE "\033[1;34m"
-# define TITLE "\033[38;5;33m"
-
-// State colors
-# define FORK_COLOR NC
-# define EAT_COLOR YELLOW
-# define THINK_COLOR LGREEN
-# define SLEEP_COLOR LBLUE
-# define DIE_COLOR RED
 
 #endif
