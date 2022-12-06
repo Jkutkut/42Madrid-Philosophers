@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:10:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/06 10:28:21 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:29:49 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 /**
  * @brief Joins all the threads and frees all the allocated memory.
+ * Note: pthread_join waits for all threads to end.
  * 
  * @param info Structure with all the information about the philosophers.
  */

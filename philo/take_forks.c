@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:42:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 22:45:14 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:31:31 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	take_forks(t_philo *philo)
 	id = philo->id;
 	pthread_mutex_lock(&philo->info->philos[id].fork_mtx);
 	print_state(philo, FORK_MSG, FORK_COLOR);
+	if (simulation_ended(philo))
+		return ;
 	id = (id + 1) % philo->info->n_philo;
 	pthread_mutex_lock(&philo->info->philos[id].fork_mtx);
 	print_state(philo, FORK_MSG, FORK_COLOR);
