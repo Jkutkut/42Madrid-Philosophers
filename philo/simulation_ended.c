@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:08:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 22:50:08 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:42:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
  * for the given philosopher.
  * 
  * @param philo Philosopher to analyze.
- * @return int TRUE if the simulation should end, FALSE otherwise.
+ * @return TRUE if the simulation should end, FALSE otherwise.
  */
-int	simulation_ended(t_philo *philo)
+t_bool	simulation_ended(t_philo *philo)
 {
 	if (philo->info->sb_died)
 		return (TRUE);

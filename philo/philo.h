@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/06 11:50:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 12:52:10 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,35 @@
 // pthread_mutex_destroy, pthread_mutex_lock, pthread_mutex_unlock
 # include <pthread.h>
 
+// ******** Custom values ********
+# define PHEUDO_INFINITE -1
+
+// Booleans
+typedef enum e_bool
+{
+	TRUE = 1,
+	FALSE = 0
+}	t_bool;
+
+// Philosopher's states
+typedef enum e_philo_state
+{
+	EATING = 0,
+	SLEEPING = 1,
+	THINKING = 2
+}	t_philo_state;
+
+// Result values
+# define SUCCESS 0
+# define ERROR_ARGS_CODE 1
+# define ERROR_NANATURAL_CODE 2
+# define ERROR_MALLOC_CODE 3
+
+
+
+
+
+
 // ******** Custom structs ********
 
 typedef struct s_simulation
@@ -50,7 +79,7 @@ typedef struct s_simulation
 
 	pthread_mutex_t	print_mtx;
 	struct s_philo	*philos;
-	int				sb_died;
+	t_bool			sb_died;
 	void			(*actions[3])(struct s_philo *);
 
 }	t_simulation;
@@ -62,7 +91,7 @@ typedef struct s_philo
 	pthread_mutex_t	fork_mtx;
 	int				id;
 	int				n_eat;
-	int				state;
+	t_philo_state	state;
 	long			l_meal;
 }	t_philo;
 
@@ -76,7 +105,7 @@ void	end_simulation(t_simulation *info);
 
 // Philo
 void	*live(void *p);
-int		simulation_ended(t_philo *philo);
+t_bool	simulation_ended(t_philo *philo);
 
 // Actions
 void	philo_eat(t_philo *philo);
@@ -98,23 +127,7 @@ void	delay(long ms);
 int		ft_atoi(char *str);
 int		set_natural(char *str, int *natural);
 
-// ******** Custom values ********
-
-# define TRUE 1
-# define FALSE 0
-
-# define PHEUDO_INFINITE -1
-
-// Philosopher's states
-# define EATING 0
-# define SLEEPING 1
-# define THINKING 2
-
-// Result values
-# define SUCCESS 0
-# define ERROR_ARGS_CODE 1
-# define ERROR_NANATURAL_CODE 2
-# define ERROR_MALLOC_CODE 3
+// TODO
 
 // ******** Custom messages ********
 
