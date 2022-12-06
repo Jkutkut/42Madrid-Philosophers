@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:02:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/19 18:46:34 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:38:10 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	print_state(t_philo *philo, char *msg, char *color)
 {
 	long	time_now;
 
+	// TODO check: mutex needed to print?
 	pthread_mutex_lock(&philo->info->print_mtx);
 	time_now = now() - philo->info->t0;
 	printf(msg, YELLOW, time_now, NC, philo->id, color, NC);

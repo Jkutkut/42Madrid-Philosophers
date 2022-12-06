@@ -6,11 +6,13 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 14:10:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 20:31:12 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:28:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+// TODO verify this is correct
 
 /**
  * @brief Joins all the threads and frees all the allocated memory.
