@@ -1,3 +1,5 @@
 philo/philo
 bin
 *.out
+*.swp
+*Tester*

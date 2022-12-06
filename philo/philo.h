@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/19 18:55:08 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:50:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_philo
 // Simulation
 int		proccess_args(t_simulation *info, int argc, char **argv);
 int		init_simulation(t_simulation *info);
+void	start_simulation(t_simulation *inf);
 void	end_simulation(t_simulation *info);
 
 // Philo

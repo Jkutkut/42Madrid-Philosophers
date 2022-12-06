@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:41:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/06 10:35:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:50:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	printf("  Number of times to eat: %d\n", info.n_times);
 	if (init_simulation(&info) != SUCCESS)
 		return (error(info.result_code));
+	start_simulation(&info);
 	end_simulation(&info);
 	return (0);
 }
