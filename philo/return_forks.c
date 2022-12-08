@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:46:10 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 22:46:43 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:17:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	return_forks(t_philo *philo)
 	int	id;
 
 	id = philo->id;
-	pthread_mutex_unlock(&philo->info->philos[id].fork_mtx);
+	return_fork(philo->info, philo->id, id);
 	id = (id + 1) % philo->info->n_philo;
-	pthread_mutex_unlock(&philo->info->philos[id].fork_mtx);
+	return_fork(philo->info, philo->id, id);
 }

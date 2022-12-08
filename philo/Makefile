@@ -30,6 +30,7 @@ TOOLS		=	delay.c \
 				philo_think.c \
 				print_state.c \
 				proccess_args.c \
+				return_fork.c \
 				return_forks.c \
 				set_natural.c \
 				simulation_ended.c \
