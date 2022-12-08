@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/06 13:42:03 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:33:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,11 @@ typedef enum e_philo_state
 
 
 // State colors
-typedef enum e_philo_state_color
-{
-	FORK_COLOR = NC,
-	EAT_COLOR = YELLOW,
-	THINK_COLOR = LGREEN,
-	SLEEP_COLOR = LBLUE,
-	DIE_COLOR = RED
-}	t_philo_state_color;
+# define FORK_COLOR NC
+# define EAT_COLOR YELLOW
+# define THINK_COLOR LGREEN
+# define SLEEP_COLOR LBLUE
+# define DIE_COLOR RED
 
 
 
