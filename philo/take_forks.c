@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:42:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 12:56:28 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/09 13:15:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,6 @@ void	take_forks(t_philo *philo)
 		return return_fork(philo, id);
 	id = (id + 1) % philo->info->n_philo;
 	take_fork(philo, id);
+	if (simulation_ended(philo))
+		return return_forks(philo);
 }
