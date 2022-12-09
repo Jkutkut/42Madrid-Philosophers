@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/08 12:33:57 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/09 11:24:26 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ typedef enum e_philo_state
 
 
 // State colors
-# define FORK_COLOR NC
 # define EAT_COLOR YELLOW
 # define THINK_COLOR LGREEN
 # define SLEEP_COLOR LBLUE
@@ -138,6 +137,7 @@ void	philo_sleep(t_philo *philo);
 
 // Forks
 void	take_forks(t_philo *philo);
+void	return_fork(t_philo *philo, int fork_id);
 void	return_forks(t_philo *philo);
 void	drop_all_forks(t_simulation *info);
 
@@ -147,6 +147,7 @@ void	print_state(t_philo *philo, char *msg, char *color);
 
 // Tools
 long	now(void);
+long	ft_getmillis(t_philo *philo);
 void	delay(long ms);
 int		ft_atoi(char *str);
 int		set_natural(char *str, int *natural);
@@ -161,11 +162,12 @@ int		set_natural(char *str, int *natural);
 # define ERROR_MALLOC "\n"
 
 // States
-# define FORK_MSG  "[%s%05d%s] philo %d %shas taken a fork%s.\n"
-# define EAT_MSG   "[%s%05d%s] philo %d is %seating%s.\n"
-# define THINK_MSG "[%s%05d%s] philo %d is %sthinking%s.\n"
-# define SLEEP_MSG "[%s%05d%s] philo %d is %ssleeping%s.\n"
-# define DIE_MSG   "[%s%05d%s] philo %d has %sdied%s.\n"
+# define RETURN_FORK_MSG "[%s%05ld%s] philo %d has dropped the fork %d.\n"
+# define TAKE_FORK_MSG  "[%s%05ld%s] philo %d has taken the fork number %d.\n"
+# define EAT_MSG   "[%s%05ld%s] philo %d is %seating%s.\n"
+# define THINK_MSG "[%s%05ld%s] philo %d is %sthinking%s.\n"
+# define SLEEP_MSG "[%s%05ld%s] philo %d is %ssleeping%s.\n"
+# define DIE_MSG   "[%s%05ld%s] philo %d has %sdied%s.\n"
 
 # define START_MSG "Philosopher %s%d%s is %salive%s\n"
 # define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"

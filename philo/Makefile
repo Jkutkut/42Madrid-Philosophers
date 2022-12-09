@@ -35,7 +35,9 @@ TOOLS		=	delay.c \
 				set_natural.c \
 				simulation_ended.c \
 				start_simulation.c \
-				take_forks.c
+				take_forks.c \
+				getmillis.c
+# TODO sort
 
 SRCS		=	$(NAME).c \
 				${TOOLS}
