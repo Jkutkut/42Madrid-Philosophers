@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 11:24:26 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:43:16 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,12 +162,12 @@ int		set_natural(char *str, int *natural);
 # define ERROR_MALLOC "\n"
 
 // States
-# define RETURN_FORK_MSG "[%s%05ld%s] philo %d has dropped the fork %d.\n"
-# define TAKE_FORK_MSG  "[%s%05ld%s] philo %d has taken the fork number %d.\n"
-# define EAT_MSG   "[%s%05ld%s] philo %d is %seating%s.\n"
-# define THINK_MSG "[%s%05ld%s] philo %d is %sthinking%s.\n"
-# define SLEEP_MSG "[%s%05ld%s] philo %d is %ssleeping%s.\n"
-# define DIE_MSG   "[%s%05ld%s] philo %d has %sdied%s.\n"
+# define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
+# define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
+# define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
+# define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
+# define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
+# define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
 
 # define START_MSG "Philosopher %s%d%s is %salive%s\n"
 # define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
