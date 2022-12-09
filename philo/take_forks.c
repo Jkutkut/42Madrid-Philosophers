@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:42:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 11:25:07 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:56:28 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	take_fork(t_philo *philo, int fork_id)
 {
 
 	pthread_mutex_lock(&philo->info->philos[fork_id].fork_mtx);
-	// TODO check: mutex needed to print?
 	pthread_mutex_lock(&philo->info->print_mtx);
 	printf(TAKE_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id, fork_id);
 	pthread_mutex_unlock(&philo->info->print_mtx);
