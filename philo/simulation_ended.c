@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:08:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 13:42:10 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:51:42 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_bool	simulation_ended(t_philo *philo)
 		return (TRUE);
 	if (philo->n_eat == philo->info->n_times)
 		return (TRUE);
-	if (now() - philo->l_meal >= philo->info->t_die)
+	if (died(philo))
 	{
 		philo->info->sb_died = TRUE;
 		return (TRUE);

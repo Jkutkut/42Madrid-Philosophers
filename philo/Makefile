@@ -17,7 +17,8 @@ COMPILE		=	$(CC) $(FLAGS)
 
 NAME		=	philo
 
-TOOLS		=	delay.c \
+TOOLS		=	died.c \
+				delay.c \
 				drop_all_forks.c \
 				end_simulation.c \
 				error.c \

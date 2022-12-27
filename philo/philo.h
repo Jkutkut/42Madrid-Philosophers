@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 17:57:27 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:52:22 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ int		error(int error_code);
 void	print_state(t_philo *philo, char *msg, char *color);
 
 // Tools
+t_bool	died(t_philo *philo);
 long	now(void);
 long	ft_getmillis(t_philo *philo);
 void	delay(long ms);
