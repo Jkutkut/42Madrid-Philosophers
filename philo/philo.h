@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 12:43:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:57:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,21 @@ typedef enum e_philo_state
 
 // ******** Custom messages ********
 
-// TODO
+// Error messages
+# define ERROR_ARGS "./philo <philos> <t_die> <t_eat> <t_sleep> [times]\n"
+# define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
+# define ERROR_MALLOC "\n"
+
+// States
+# define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
+# define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
+# define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
+# define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
+# define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
+# define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
+
+# define START_MSG "Philosopher %s%d%s is %salive%s\n"
+# define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
 
 // ******** Custom colors ********
 # define NC "\033[0m"
@@ -76,15 +90,11 @@ typedef enum e_philo_state
 # define LBLUE "\033[1;34m"
 # define TITLE "\033[38;5;33m"
 
-
 // State colors
 # define EAT_COLOR YELLOW
 # define THINK_COLOR LGREEN
 # define SLEEP_COLOR LBLUE
 # define DIE_COLOR RED
-
-
-
 
 // ******** Custom structs ********
 
@@ -95,16 +105,12 @@ typedef struct s_simulation
 	int				t_eat;
 	int				t_sleep;
 	int				n_times;
-
 	int				result_code;
-
 	long			t0;
-
 	pthread_mutex_t	print_mtx;
 	struct s_philo	*philos;
 	t_bool			sb_died;
 	void			(*actions[3])(struct s_philo *);
-
 }	t_simulation;
 
 typedef struct s_philo
@@ -151,25 +157,5 @@ long	ft_getmillis(t_philo *philo);
 void	delay(long ms);
 int		ft_atoi(char *str);
 int		set_natural(char *str, int *natural);
-
-// TODO
-
-// ******** Custom messages ********
-
-// Error messages
-# define ERROR_ARGS "./philo <philos> <t_die> <t_eat> <t_sleep> [times]\n"
-# define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
-# define ERROR_MALLOC "\n"
-
-// States
-# define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
-# define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
-# define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
-# define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
-# define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
-# define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
-
-# define START_MSG "Philosopher %s%d%s is %salive%s\n"
-# define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
 
 #endif
