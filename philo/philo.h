@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/27 15:52:22 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:52:13 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,7 @@ typedef enum e_philo_state
 // Error messages
 # define ERROR_ARGS "./philo <philos> <t_die> <t_eat> <t_sleep> [times]\n"
 # define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
-# define ERROR_MALLOC "\n"
-
-// States
-# define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
-# define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
-# define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
-# define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
-# define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
-# define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
-
-# define START_MSG "Philosopher %s%d%s is %salive%s\n"
-# define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
+# define ERROR_MALLOC "Malloc failed\n"
 
 // ******** Custom colors ********
 # define NC "\033[0m"
@@ -90,11 +79,35 @@ typedef enum e_philo_state
 # define LBLUE "\033[1;34m"
 # define TITLE "\033[38;5;33m"
 
-// State colors
-# define EAT_COLOR YELLOW
-# define THINK_COLOR LGREEN
-# define SLEEP_COLOR LBLUE
-# define DIE_COLOR RED
+#  define EAT_COLOR YELLOW
+#  define THINK_COLOR LGREEN
+#  define SLEEP_COLOR LBLUE
+#  define DIE_COLOR RED
+
+// # define DEBUG_ON
+
+#  define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
+
+#  define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
+#  define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
+#  define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
+#  define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
+#  define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
+
+#  define START_MSG "Philosopher %s%d%s is %salive%s\n"
+#  define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
+
+#  define TAKE_FORK_MSG_CLASSIC "%011ld %d has taken a fork\n"
+#  define EAT_MSG_CLASSIC "%011ld %d is eating\n"
+#  define SLEEP_MSG_CLASSIC "%011ld %d is sleeping\n"
+#  define THINK_MSG_CLASSIC "%011ld %d is thinking\n"
+#  define DIE_MSG_CLASSIC "%011ld %d died\n"
+
+# ifdef DEBUG_ON
+#  define DEBUG 1
+# else
+#  define DEBUG 0
+# endif
 
 // ******** Custom structs ********
 
@@ -150,6 +163,7 @@ void	drop_all_forks(t_simulation *info);
 // Print
 int		error(int error_code);
 void	print_state(t_philo *philo, char *msg, char *color);
+void	print_state_classic(t_philo *philo, char *msg);
 
 // Tools
 t_bool	died(t_philo *philo);

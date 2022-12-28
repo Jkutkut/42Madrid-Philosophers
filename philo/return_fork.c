@@ -9,7 +9,7 @@
 /*   By: Jkutkut  https://github.com/jkutkut              /:::::::::::::\     */
 /*                                                       /:::::::::::::::\    */
 /*   Created: 2022/12/08 17:36:04 by Jkutkut            /:::===========:::\   */
-/*   Updated: 2022/12/27 16:01:17 by Jkutkut            '-----------------'   */
+/*   Updated: 2022/12/28 14:30:10 by Jkutkut            '-----------------'   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	return_fork(t_philo *philo, int fork_id)
 	if (died(philo))
 		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
-	printf(RETURN_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id, fork_id);
+	if (DEBUG)
+		printf(RETURN_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id, fork_id);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }

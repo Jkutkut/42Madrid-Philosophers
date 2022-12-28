@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:06:08 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/05 18:57:44 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:51:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
  */
 void	philo_sleep(t_philo *philo)
 {
-	print_state(philo, SLEEP_MSG, SLEEP_COLOR);
+	if (DEBUG)
+		print_state(philo, SLEEP_MSG, SLEEP_COLOR);
+	else
+		print_state_classic(philo, SLEEP_MSG_CLASSIC);
 	delay(philo->info->t_sleep);
 	philo->state = EATING;
 }

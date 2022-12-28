@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:42:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/27 15:56:34 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:39:36 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	take_fork(t_philo *philo, int fork_id)
 	if (died(philo))
 		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
-	printf(TAKE_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id, fork_id);
+	if (DEBUG)
+		printf(TAKE_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id, fork_id);
+	else
+		printf(TAKE_FORK_MSG_CLASSIC, ft_getmillis(philo), philo->id);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
 

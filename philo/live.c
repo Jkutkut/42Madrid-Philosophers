@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:16:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/09 13:30:49 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:54:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static void	print_philo_msg(t_philo *philo, char *msg)
 {
+	if (!DEBUG)
+		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
 	printf(msg, TITLE, philo->id, NC, YELLOW, NC);
 	pthread_mutex_unlock(&philo->info->print_mtx);
@@ -40,8 +42,13 @@ void	*live(void *p)
 			break ;
 		philo->info->actions[philo->state](philo);
 	}
-	if (now() - philo->l_meal >= philo->info->t_die)
-		print_state(philo, DIE_MSG, DIE_COLOR);
+	if (died(philo))
+	{
+		if (DEBUG)
+			print_state(philo, DIE_MSG, DIE_COLOR);
+		else
+			print_state_classic(philo, DIE_MSG_CLASSIC);
+	}
 	print_philo_msg(philo, END_MSG);
 	return (NULL);
 }
