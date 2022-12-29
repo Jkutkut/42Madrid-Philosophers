@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:32:39 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/28 21:52:13 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:18:27 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ typedef struct s_simulation
 	long			t0;
 	pthread_mutex_t	print_mtx;
 	struct s_philo	*philos;
-	t_bool			sb_died;
+	int				sb_died;
 	void			(*actions[3])(struct s_philo *);
 }	t_simulation;
 

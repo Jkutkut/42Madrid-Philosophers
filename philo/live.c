@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:16:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/28 21:54:41 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2022/12/28 22:17:57 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	*live(void *p)
 			break ;
 		philo->info->actions[philo->state](philo);
 	}
-	if (died(philo))
+	if (died(philo) && philo->info->sb_died == philo->id)
 	{
 		if (DEBUG)
 			print_state(philo, DIE_MSG, DIE_COLOR);
