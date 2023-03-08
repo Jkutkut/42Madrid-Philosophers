@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 22:42:33 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/28 21:39:36 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:32:34 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	take_fork(t_philo *philo, int fork_id)
 {
 
 	pthread_mutex_lock(&philo->info->philos[fork_id].fork_mtx);
-	if (died(philo))
+	if (simulation_ended(philo))
 		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
 	if (DEBUG)

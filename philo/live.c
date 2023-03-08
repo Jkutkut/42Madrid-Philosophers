@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:16:00 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/28 22:17:57 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:34:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	*live(void *p)
 		else
 			print_state_classic(philo, DIE_MSG_CLASSIC);
 	}
-	print_philo_msg(philo, END_MSG);
+	// print_philo_msg(philo, END_MSG);
 	return (NULL);
 }
