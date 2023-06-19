@@ -44,6 +44,8 @@ typedef enum e_bool
 	FALSE = 0
 }	t_bool;
 
+# define INVALID -1
+
 // Philosopher's states
 typedef enum e_philo_state
 {

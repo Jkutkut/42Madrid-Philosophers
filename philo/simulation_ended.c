@@ -21,7 +21,7 @@
  */
 t_bool	simulation_ended(t_philo *philo)
 {
-	if (philo->info->sb_died)
+	if (philo->info->sb_died != INVALID)
 		return (TRUE);
 	if (philo->n_eat == philo->info->n_times)
 		return (TRUE);

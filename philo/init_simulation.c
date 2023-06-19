@@ -26,7 +26,7 @@ int	init_simulation(t_simulation *inf)
 	inf->actions[EATING] = philo_eat;
 	inf->actions[SLEEPING] = philo_sleep;
 	pthread_mutex_init(&inf->print_mtx, NULL);
-	inf->sb_died = FALSE;
+	inf->sb_died = INVALID;
 	inf->philos = (t_philo *) malloc(sizeof(t_philo) * inf->n_philo);
 	if (inf->philos == NULL)
 	{
