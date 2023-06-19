@@ -17,7 +17,7 @@ static void	print_philo_msg(t_philo *philo, char *msg)
 	if (!DEBUG)
 		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
-	printf(msg, TITLE, philo->id, NC, YELLOW, NC);
+	printf(msg, TITLE, philo->id + 1, NC, YELLOW, NC);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
 

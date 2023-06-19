@@ -20,9 +20,9 @@ void	take_fork(t_philo *philo, int fork_id)
 		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
 	if (DEBUG)
-		printf(TAKE_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id, fork_id);
+		printf(TAKE_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id + 1, fork_id);
 	else
-		printf(TAKE_FORK_MSG_CLASSIC, ft_getmillis(philo), philo->id);
+		printf(TAKE_FORK_MSG_CLASSIC, ft_getmillis(philo), philo->id + 1);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
 

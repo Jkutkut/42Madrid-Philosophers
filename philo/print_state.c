@@ -22,7 +22,7 @@ void	print_state(t_philo *philo, char *msg, char *color)
 {
 	pthread_mutex_lock(&philo->info->print_mtx);
 	if (!simulation_ended(philo) || died(philo))
-		printf(msg, YELLOW, ft_getmillis(philo), NC, philo->id, color, NC);
+		printf(msg, YELLOW, ft_getmillis(philo), NC, philo->id + 1, color, NC);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
 
@@ -35,6 +35,6 @@ void	print_state(t_philo *philo, char *msg, char *color)
 void	print_state_classic(t_philo *philo, char *msg)
 { // TODO update with normal version
 	pthread_mutex_lock(&philo->info->print_mtx);
-	printf(msg, ft_getmillis(philo), philo->id);
+	printf(msg, ft_getmillis(philo), philo->id + 1);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
