@@ -49,6 +49,7 @@ void	*live(void *p)
 		else
 			print_state_classic(philo, DIE_MSG_CLASSIC);
 	}
-	// print_philo_msg(philo, END_MSG);
+	if (DEBUG)
+		print_philo_msg(philo, END_MSG);
 	return (NULL);
 }
