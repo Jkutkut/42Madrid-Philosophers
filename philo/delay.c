@@ -20,14 +20,12 @@
  */
 void	delay(long ms)
 {
-	long	t;
+	long	end;
+	long	steps;
 
-	t = now();
-	if (ms > 1000)
-		usleep((ms >> 1) * 1000);
-	while (now() - t < ms)
-		;
-	// usleep(ms * 920);
-	// while(now() < t + ms)
-	// 	usleep(ms * 3);
+	end = now() + ms;
+	steps = 2 * ms;
+	usleep(ms * 940);
+	while(now() < end)
+		usleep(steps);
 }
