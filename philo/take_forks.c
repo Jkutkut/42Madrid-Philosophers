@@ -51,5 +51,5 @@ void	take_forks(t_philo *philo)
 		return double_sword(philo);
 	take_fork(philo, id);
 	if (simulation_ended(philo))
-		return return_forks(philo);
+		return_forks(philo);
 }
