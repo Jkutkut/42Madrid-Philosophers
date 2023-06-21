@@ -34,7 +34,7 @@ void	*live(void *p)
 	philo = (t_philo *) p;
 	print_philo_msg(philo, START_MSG);
 	philo->l_meal = now();
-	if (philo->id % 2 == 0)
+	if (philo->id % 2)
 		delay(philo->info->t_sleep >> 2);
 	while (1)
 	{

@@ -28,7 +28,7 @@ void	take_fork(t_philo *philo, int fork_id)
 
 void	double_sword(t_philo *philo)
 {
-	take_fork(philo, philo->id);
+	// take_fork(philo, philo->id);
 	while (!simulation_ended(philo))
 		;
 	return return_fork(philo, philo->id);

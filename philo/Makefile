@@ -10,8 +10,8 @@ TITLE		=	\033[38;5;33m
 
 # Compile variables
 CC			=	gcc
-# FLAGS		=	-Wall -Wextra #-Werror
-FLAGS		=	-D DEBUG_ON -Wall -Wextra #-Werror
+FLAGS		=	-Wall -Wextra #-Werror
+# FLAGS		=	-D DEBUG_ON -Wall -Wextra #-Werror
 COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
