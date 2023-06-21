@@ -27,17 +27,13 @@ t_philo_result	proccess_args(t_simulation *info, int argc, char **argv)
 	int	i;
 	int	*arguments;
 
-	info->result_code = ERROR_ARGS_CODE;
 	if (argc < 5 || argc > 6)
 		return (ERROR_ARGS_CODE);
 	info->n_times = PHEUDO_INFINITE;
 	arguments = (int *) info;
 	i = 0;
-	while (i++ < argc - 1)
-	{
+	info->result_code = SUCCESS;
+	while (i++ < argc - 1 && info->result_code == SUCCESS)
 		info->result_code = set_natural(argv[i], &arguments[i - 1]);
-		if (info->result_code != SUCCESS) // TODO refactor into while
-			break ;
-	}
 	return (info->result_code);
 }
