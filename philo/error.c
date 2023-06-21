@@ -18,9 +18,9 @@
  * If success code is given, nothing is printed.
  * 
  * @param error_code Error code.
- * @return int The input given.
+ * @return t_philo_result The input given.
  */
-int	error(int error_code)
+t_philo_result	error(t_philo_result error_code)
 {
 	if (error_code != SUCCESS)
 		printf("%sPhilo error%s:\n  ", RED, NC);

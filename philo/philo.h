@@ -54,11 +54,13 @@ typedef enum e_philo_state
 	THINKING = 2
 }	t_philo_state;
 
-// Return values
-# define SUCCESS 0
-# define ERROR_ARGS_CODE 1
-# define ERROR_NANATURAL_CODE 2
-# define ERROR_MALLOC_CODE 3
+typedef enum e_philo_result
+{
+	SUCCESS = 0,
+	ERROR_ARGS_CODE = 1,
+	ERROR_NANATURAL_CODE = 2,
+	ERROR_MALLOC_CODE = 3
+}	t_philo_result;
 
 // ******** Custom messages ********
 
@@ -142,37 +144,37 @@ typedef struct s_philo
 // ******** Custom functions ********
 
 // Simulation
-int		proccess_args(t_simulation *info, int argc, char **argv);
-int		init_simulation(t_simulation *info);
-void	start_simulation(t_simulation *inf);
-void	end_simulation(t_simulation *info);
+t_philo_result	proccess_args(t_simulation *info, int argc, char **argv);
+t_philo_result	init_simulation(t_simulation *info);
+void			start_simulation(t_simulation *inf);
+void			end_simulation(t_simulation *info);
 
 // Philo
-void	*live(void *p);
-t_bool	simulation_ended(t_philo *philo);
+void			*live(void *p);
+t_bool			simulation_ended(t_philo *philo);
 
 // Actions
-void	philo_eat(t_philo *philo);
-void	philo_think(t_philo *philo);
-void	philo_sleep(t_philo *philo);
+void			philo_eat(t_philo *philo);
+void			philo_think(t_philo *philo);
+void			philo_sleep(t_philo *philo);
 
 // Forks
-void	take_forks(t_philo *philo);
-void	return_fork(t_philo *philo, int fork_id);
-void	return_forks(t_philo *philo);
-void	drop_all_forks(t_simulation *info);
+void			take_forks(t_philo *philo);
+void			return_fork(t_philo *philo, int fork_id);
+void			return_forks(t_philo *philo);
+void			drop_all_forks(t_simulation *info);
 
 // Print
-int		error(int error_code);
-void	print_state(t_philo *philo, char *msg, char *color);
-void	print_state_classic(t_philo *philo, char *msg);
+t_philo_result	error(t_philo_result error_code);
+void			print_state(t_philo *philo, char *msg, char *color);
+void			print_state_classic(t_philo *philo, char *msg);
 
 // Tools
-t_bool	died(t_philo *philo);
-long	now(void);
-long	ft_getmillis(t_philo *philo);
-void	delay(long ms);
-int		ft_atoi(char *str);
-int		set_natural(char *str, int *natural);
+t_bool			died(t_philo *philo);
+long			now(void);
+long			ft_getmillis(t_philo *philo);
+void			delay(long ms);
+int				ft_atoi(char *str);
+t_philo_result	set_natural(char *str, int *natural);
 
 #endif

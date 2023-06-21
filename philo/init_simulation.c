@@ -18,7 +18,7 @@
  * @param inf Structure with all the information about the philosophers.
  * @return int SUCCESS if everything went well, ERROR code if there was any.
  */
-int	init_simulation(t_simulation *inf)
+t_philo_result	init_simulation(t_simulation *inf)
 {
 	int	i;
 

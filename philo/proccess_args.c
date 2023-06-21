@@ -22,7 +22,7 @@
  * @param argv argv from main.
  * @return int SUCCESS if everything went well, ERROR code otherwise.
  */
-int	proccess_args(t_simulation *info, int argc, char **argv)
+t_philo_result	proccess_args(t_simulation *info, int argc, char **argv)
 {
 	int	i;
 	int	*arguments;
@@ -36,7 +36,7 @@ int	proccess_args(t_simulation *info, int argc, char **argv)
 	while (i++ < argc - 1)
 	{
 		info->result_code = set_natural(argv[i], &arguments[i - 1]);
-		if (info->result_code != SUCCESS)
+		if (info->result_code != SUCCESS) // TODO refactor into while
 			break ;
 	}
 	return (info->result_code);
