@@ -81,29 +81,29 @@ typedef enum e_philo_state
 # define LBLUE "\033[1;34m"
 # define TITLE "\033[38;5;33m"
 
-#  define EAT_COLOR YELLOW
-#  define THINK_COLOR LGREEN
-#  define SLEEP_COLOR LBLUE
-#  define DIE_COLOR RED
+# define EAT_COLOR YELLOW
+# define THINK_COLOR LGREEN
+# define SLEEP_COLOR LBLUE
+# define DIE_COLOR RED
 
-// # define DEBUG_ON
+// # define DEBUG_ON // TODO refactor debug logic
 
-#  define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
+# define RETURN_FORK_MSG "[%s%05ld%s] %d has dropped the fork %d.\n"
 
-#  define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
-#  define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
-#  define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
-#  define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
-#  define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
+# define TAKE_FORK_MSG  "[%s%05ld%s] %d has taken a fork (%d).\n"
+# define EAT_MSG   "[%s%05ld%s] %d is %seating%s.\n"
+# define SLEEP_MSG "[%s%05ld%s] %d is %ssleeping%s.\n"
+# define THINK_MSG "[%s%05ld%s] %d is %sthinking%s.\n"
+# define DIE_MSG   "[%s%05ld%s] %d %sdied%s.\n"
 
-#  define START_MSG "Philosopher %s%d%s is %salive%s\n"
-#  define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
+# define START_MSG "Philosopher %s%d%s is %salive%s\n"
+# define END_MSG "Philosopher %s%d%s's simulation %sended%s\n"
 
-#  define TAKE_FORK_MSG_CLASSIC "%011ld %d has taken a fork\n"
-#  define EAT_MSG_CLASSIC "%011ld %d is eating\n"
-#  define SLEEP_MSG_CLASSIC "%011ld %d is sleeping\n"
-#  define THINK_MSG_CLASSIC "%011ld %d is thinking\n"
-#  define DIE_MSG_CLASSIC "%011ld %d died\n"
+# define TAKE_FORK_MSG_CLASSIC "%011ld %d has taken a fork\n"
+# define EAT_MSG_CLASSIC "%011ld %d is eating\n"
+# define SLEEP_MSG_CLASSIC "%011ld %d is sleeping\n"
+# define THINK_MSG_CLASSIC "%011ld %d is thinking\n"
+# define DIE_MSG_CLASSIC "%011ld %d died\n"
 
 # ifdef DEBUG_ON
 #  define DEBUG 1

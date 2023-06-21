@@ -26,6 +26,6 @@ void	delay(long ms)
 	end = now() + ms;
 	steps = 2 * ms;
 	usleep(ms * 940);
-	while(now() < end)
+	while (now() < end)
 		usleep(steps);
 }

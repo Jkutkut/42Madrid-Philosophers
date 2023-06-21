@@ -32,8 +32,9 @@ void	print_state(t_philo *philo, char *msg, char *color)
  * @param philo Philosopher to print.
  * @param msg Message to print.
  */
+// TODO update with normal version
 void	print_state_classic(t_philo *philo, char *msg)
-{ // TODO update with normal version
+{
 	pthread_mutex_lock(&philo->info->print_mtx);
 	printf(msg, ft_getmillis(philo), philo->id + 1);
 	pthread_mutex_unlock(&philo->info->print_mtx);
