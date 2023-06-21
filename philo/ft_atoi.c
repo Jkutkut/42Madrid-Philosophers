@@ -55,7 +55,7 @@ int	ft_atoi(char *str)
 	}
 	if (number > LONG_MAX && sign < 0)
 		return (0);
-	else if (number > LONG_MAX && sign > 0)
+	else if ((number > LONG_MAX && sign > 0) || str[i])
 		return (-1);
 	return (sign * number);
 }

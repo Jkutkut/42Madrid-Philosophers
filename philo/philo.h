@@ -66,8 +66,8 @@ typedef enum e_philo_result
 
 // Error messages
 # define ERROR_ARGS "./philo <philos> <t_die> <t_eat> <t_sleep> [times]\n"
-# define ERROR_NANATURAL "All arguments must be positive integers > 0\n"
-# define ERROR_MALLOC "Malloc failed\n"
+# define ERROR_NANATURAL "All arguments must be positive integers > 0.\n"
+# define ERROR_MALLOC "Malloc failed.\n"
 
 // ******** Custom colors ********
 # define NC "\033[0m"
