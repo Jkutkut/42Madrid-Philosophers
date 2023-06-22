@@ -3,25 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   simulation_ended.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 17:08:37 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/12/28 22:17:07 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:00:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-/**
- * @brief Analyzes the simulation and determines if the simulation should end
- * for the given philosopher.
- * 
- * @param philo Philosopher to analyze.
- * @return TRUE if the simulation should end, FALSE otherwise.
- */
 t_bool	simulation_ended(t_philo *philo)
 {
-	if (philo->info->sb_died)
+	if (philo->info->sb_died != INVALID)
 		return (TRUE);
 	if (philo->n_eat == philo->info->n_times)
 		return (TRUE);

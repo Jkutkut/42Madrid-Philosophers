@@ -18,12 +18,15 @@ int	main(int argc, char **argv)
 
 	if (proccess_args(&info, argc, argv) != SUCCESS)
 		return (error(info.result_code));
-	// printf("Philo info:\n"); // TODO refactor strings into .h
-	// printf("  Number of philosophers: %d\n", info.n_philo);
-	// printf("  Time to die: %d\n", info.t_die);
-	// printf("  Time to eat: %d\n", info.t_eat);
-	// printf("  Time to sleep: %d\n", info.t_sleep);
-	// printf("  Number of times to eat: %d\n", info.n_times);
+	if (DEBUG)
+	{
+		printf("Philo info:\n");
+		printf("  Number of philosophers: %d\n", info.n_philo);
+		printf("  Time to die: %d\n", info.t_die);
+		printf("  Time to eat: %d\n", info.t_eat);
+		printf("  Time to sleep: %d\n", info.t_sleep);
+		printf("  Number of times to eat: %d\n", info.n_times);
+	}
 	if (init_simulation(&info) != SUCCESS)
 		return (error(info.result_code));
 	start_simulation(&info);

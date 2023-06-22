@@ -14,9 +14,12 @@
 
 void	start_simulation(t_simulation *inf)
 {
-	int	i;
+	unsigned int	i;
 
-	i = -1;
-	while (++i < inf->n_philo)
+	i = 0;
+	while (i < inf->n_philo)
+	{
 		pthread_create(&inf->philos[i].thread_id, NULL, &live, &inf->philos[i]);
+		++i;
+	}
 }

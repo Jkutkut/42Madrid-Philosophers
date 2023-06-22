@@ -12,24 +12,16 @@
 
 #include "philo.h"
 
-// TODO verify this is correct
-
-/**
- * @brief Joins all the threads and frees all the allocated memory.
- * Note: pthread_join waits for all threads to end.
- * 
- * @param info Structure with all the information about the philosophers.
- */
 void	end_simulation(t_simulation *info)
 {
-	int	i;
+	unsigned int	i;
 
-	i = -1;
-	while (++i < info->n_philo)
-		pthread_join(info->philos[i].thread_id, NULL);
-	i = -1;
-	while (++i < info->n_philo)
-		pthread_mutex_destroy(&info->philos[i].fork_mtx);
+	i = 0;
+	while (i < info->n_philo)
+		pthread_join(info->philos[i++].thread_id, NULL);
+	i = 0;
+	while (i < info->n_philo)
+		pthread_mutex_destroy(&info->philos[i++].fork_mtx);
 	pthread_mutex_destroy(&info->print_mtx);
 	free(info->philos);
 }

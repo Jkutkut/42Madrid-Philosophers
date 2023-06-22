@@ -12,11 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Custom function that returns the current time in milliseconds.
- * 
- * @return long Current time in milliseconds.
- */
 long	now(void)
 {
 	struct timeval	tv;

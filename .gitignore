@@ -3,5 +3,7 @@ bin
 *.out
 *.swp
 
+tester*
 *Tester*
 socrates
+

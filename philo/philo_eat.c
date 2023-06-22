@@ -12,20 +12,12 @@
 
 #include "philo.h"
 
-/**
- * @brief Function that simulates the eating of a philosopher.
- * 
- * @param philo Philosopher to make eat.
- */
 void	philo_eat(t_philo *philo)
 {
 	take_forks(philo);
 	if (simulation_ended(philo))
 		return ;
-	if (DEBUG)
-		print_state(philo, EAT_MSG, EAT_COLOR);
-	else
-		print_state_classic(philo, EAT_MSG_CLASSIC);
+	print_state(philo, EAT_MSG);
 	philo->n_eat++;
 	philo->l_meal = now();
 	delay(philo->info->t_eat);

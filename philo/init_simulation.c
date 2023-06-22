@@ -12,21 +12,15 @@
 
 #include "philo.h"
 
-/**
- * @brief Creates all the necessary threads and logic to make the simulation.
- * 
- * @param inf Structure with all the information about the philosophers.
- * @return int SUCCESS if everything went well, ERROR code if there was any.
- */
-int	init_simulation(t_simulation *inf)
+t_philo_result	init_simulation(t_simulation *inf)
 {
-	int	i;
+	unsigned int	i;
 
 	inf->actions[THINKING] = philo_think;
 	inf->actions[EATING] = philo_eat;
 	inf->actions[SLEEPING] = philo_sleep;
 	pthread_mutex_init(&inf->print_mtx, NULL);
-	inf->sb_died = FALSE;
+	inf->sb_died = INVALID;
 	inf->philos = (t_philo *) malloc(sizeof(t_philo) * inf->n_philo);
 	if (inf->philos == NULL)
 	{
@@ -34,14 +28,14 @@ int	init_simulation(t_simulation *inf)
 		return (inf->result_code);
 	}
 	inf->t0 = now();
-	i = -1;
-	while (++i < inf->n_philo)
+	i = 0;
+	while (i < inf->n_philo)
 	{
 		inf->philos[i].id = i;
 		inf->philos[i].n_eat = 0;
 		inf->philos[i].info = inf;
 		pthread_mutex_init(&inf->philos[i].fork_mtx, NULL);
-		inf->philos[i].state = EATING;
+		inf->philos[i++].state = EATING;
 	}
 	return (SUCCESS);
 }

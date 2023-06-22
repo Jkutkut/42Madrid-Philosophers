@@ -10,20 +10,21 @@ TITLE		=	\033[38;5;33m
 
 # Compile variables
 CC			=	gcc
-# FLAGS		=	-Wall -Wextra #-Werror
-FLAGS		=	-D DEBUG_ON -Wall -Wextra #-Werror
+FLAGS		=	-Wall -Wextra -Werror
 COMPILE		=	$(CC) $(FLAGS)
 
 # Code variables
 
 NAME		=	philo
 
-TOOLS		=	died.c \
+SRCS		=	$(NAME).c \
 				delay.c \
+				died.c \
 				drop_all_forks.c \
 				end_simulation.c \
 				error.c \
 				ft_atoi.c \
+				getmillis.c \
 				init_simulation.c \
 				live.c \
 				now.c \
@@ -37,12 +38,8 @@ TOOLS		=	died.c \
 				set_natural.c \
 				simulation_ended.c \
 				start_simulation.c \
-				take_forks.c \
-				getmillis.c
-# TODO sort
-
-SRCS		=	$(NAME).c \
-				${TOOLS}
+				take_fork.c \
+				take_forks.c
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
@@ -54,14 +51,7 @@ OBJS		=	${SRCS:%.c=bin/%.o}
 # Makefile logic
 all: $(NAME)
 
-# DEBUG
-ifeq ($(UNAME_S),Linux)
-debug: FLAGS += -pedantic -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=bounds -fsanitize=null -g3
-endif
-ifeq ($(UNAME_S),Darwin)
-debug: FLAGS += -pedantic -fsanitize=address -g3
-endif
-
+debug: FLAGS += -D DEBUG_ON
 debug: $(NAME)
 
 $(NAME):	$(LIB) $(OBJS)
@@ -88,3 +78,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all re fclean clean
+
+used_code: $(NAME)
+	nm -u $(NAME)
