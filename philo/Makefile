@@ -17,12 +17,14 @@ COMPILE		=	$(CC) $(FLAGS)
 
 NAME		=	philo
 
-TOOLS		=	died.c \
+SRCS		=	$(NAME).c \
 				delay.c \
+				died.c \
 				drop_all_forks.c \
 				end_simulation.c \
 				error.c \
 				ft_atoi.c \
+				getmillis.c \
 				init_simulation.c \
 				live.c \
 				now.c \
@@ -37,12 +39,7 @@ TOOLS		=	died.c \
 				simulation_ended.c \
 				start_simulation.c \
 				take_fork.c \
-				take_forks.c \
-				getmillis.c
-# TODO sort
-
-SRCS		=	$(NAME).c \
-				${TOOLS}
+				take_forks.c
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 

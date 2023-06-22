@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 19:54:54 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/04 23:41:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:15:00 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ t_philo_result	error(t_philo_result error_code)
 		printf(ERROR_NANATURAL);
 	else if (error_code == ERROR_MALLOC_CODE)
 		printf(ERROR_MALLOC);
-	// TODO thread errors?
 	return (error_code);
 }
