@@ -20,7 +20,7 @@
  */
 t_philo_result	init_simulation(t_simulation *inf)
 {
-	int	i;
+	unsigned int	i;
 
 	inf->actions[THINKING] = philo_think;
 	inf->actions[EATING] = philo_eat;
@@ -34,14 +34,14 @@ t_philo_result	init_simulation(t_simulation *inf)
 		return (inf->result_code);
 	}
 	inf->t0 = now();
-	i = -1;
-	while (++i < inf->n_philo)
+	i = 0;
+	while (i < inf->n_philo)
 	{
 		inf->philos[i].id = i;
 		inf->philos[i].n_eat = 0;
 		inf->philos[i].info = inf;
 		pthread_mutex_init(&inf->philos[i].fork_mtx, NULL);
-		inf->philos[i].state = EATING;
+		inf->philos[i++].state = EATING;
 	}
 	return (SUCCESS);
 }

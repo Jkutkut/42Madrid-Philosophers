@@ -12,19 +12,11 @@
 
 #include "philo.h"
 
-/**
- * @brief Forces all philosophers to drop their forks.
- * 
- * @note When implementing in other OS, keep in mind that unlocking a not
- * locked mutex is undefined behaviour.
- * 
- * @param info Struct storing the philosophers and the simulation info.
- */
 void	drop_all_forks(t_simulation *info)
 {
-	int	i;
+	unsigned int	i;
 
-	i = -1;
-	while (++i < info->n_philo)
-		pthread_mutex_unlock(&info->philos[i].fork_mtx);
+	i = 0;
+	while (i < info->n_philo)
+		pthread_mutex_unlock(&info->philos[i++].fork_mtx);
 }

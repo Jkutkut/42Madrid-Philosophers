@@ -111,11 +111,11 @@ typedef enum e_philo_result
 
 typedef struct s_simulation
 {
-	int				n_philo;
-	int				t_die;
-	int				t_eat;
-	int				t_sleep;
-	int				n_times;
+	unsigned int	n_philo;
+	unsigned int	t_die;
+	unsigned int	t_eat;
+	unsigned int	t_sleep;
+	unsigned int	n_times;
 	int				result_code;
 	long			t0;
 	pthread_mutex_t	print_mtx;
@@ -130,7 +130,7 @@ typedef struct s_philo
 	pthread_t		thread_id;
 	pthread_mutex_t	fork_mtx;
 	int				id;
-	int				n_eat;
+	unsigned int	n_eat;
 	t_philo_state	state;
 	long			l_meal;
 }	t_philo;

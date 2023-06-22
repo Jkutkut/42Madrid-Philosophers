@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "philo.h"
 #include <stddef.h>
 #include <limits.h>
 
 #define SPACES " \n\v\f\r\t"
 #define NUMBERS "0123456789"
 
-// TODO update with new version from libft
 static int	ft_hasany(const char *str, char c)
 {
 	size_t	i;
