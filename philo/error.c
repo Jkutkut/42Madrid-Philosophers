@@ -12,23 +12,16 @@
 
 #include "philo.h"
 
-/**
- * @brief Prints the error message defined by the error code.
- * 
- * If success code is given, nothing is printed.
- * 
- * @param error_code Error code.
- * @return t_philo_result The input given.
- */
 t_philo_result	error(t_philo_result error_code)
 {
 	if (error_code != SUCCESS)
-		printf("%sPhilo error%s:\n  ", RED, NC);
+		printf(ERROR);
 	if (error_code == ERROR_ARGS_CODE)
 		printf(ERROR_ARGS);
 	else if (error_code == ERROR_NANATURAL_CODE)
 		printf(ERROR_NANATURAL);
 	else if (error_code == ERROR_MALLOC_CODE)
 		printf(ERROR_MALLOC);
+	// TODO thread errors?
 	return (error_code);
 }

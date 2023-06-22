@@ -12,11 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Function that simulates the eating of a philosopher.
- * 
- * @param philo Philosopher to make eat.
- */
 void	philo_eat(t_philo *philo)
 {
 	take_forks(philo);

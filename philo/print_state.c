@@ -12,12 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Prints the state of the philosopher.
- * 
- * @param philo Philosopher to print.
- * @param msg Message to print.
- */
 void	print_state(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(&philo->info->print_mtx);

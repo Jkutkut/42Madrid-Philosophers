@@ -12,11 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Function to simulate the thinking of a philosopher.
- * 
- * @param philo Philosopher to simulate.
- */
 void	philo_think(t_philo *philo)
 {
 	print_state(philo, THINK_MSG);

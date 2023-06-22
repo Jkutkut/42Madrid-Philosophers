@@ -36,6 +36,7 @@ TOOLS		=	died.c \
 				set_natural.c \
 				simulation_ended.c \
 				start_simulation.c \
+				take_fork.c \
 				take_forks.c \
 				getmillis.c
 # TODO sort

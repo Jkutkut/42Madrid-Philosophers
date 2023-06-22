@@ -12,11 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Function to simulate the sleep of a philosopher.
- * 
- * @param philo Philosopher to simulate.
- */
 void	philo_sleep(t_philo *philo)
 {
 	print_state(philo, SLEEP_MSG);

@@ -12,14 +12,6 @@
 
 #include "philo.h"
 
-// TODO verify this is correct
-
-/**
- * @brief Joins all the threads and frees all the allocated memory.
- * Note: pthread_join waits for all threads to end.
- * 
- * @param info Structure with all the information about the philosophers.
- */
 void	end_simulation(t_simulation *info)
 {
 	unsigned int	i;

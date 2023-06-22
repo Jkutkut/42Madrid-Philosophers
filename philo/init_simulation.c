@@ -12,12 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Creates all the necessary threads and logic to make the simulation.
- * 
- * @param inf Structure with all the information about the philosophers.
- * @return int SUCCESS if everything went well, ERROR code if there was any.
- */
 t_philo_result	init_simulation(t_simulation *inf)
 {
 	unsigned int	i;

@@ -12,16 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Updates the main struct with the arguments given.
- * 
- * The code updates the first 5 variables on the struct as they're ints.
- * 
- * @param info The main struct to update.
- * @param argc argc from main.
- * @param argv argv from main.
- * @return int SUCCESS if everything went well, ERROR code otherwise.
- */
 t_philo_result	proccess_args(t_simulation *info, int argc, char **argv)
 {
 	int	i;

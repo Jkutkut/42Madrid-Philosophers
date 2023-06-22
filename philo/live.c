@@ -19,12 +19,6 @@ static void	print_philo_msg(t_philo *philo, char *msg)
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
 
-/**
- * @brief Simulates the live of the given philosopher.
- * 
- * @param p Philosopher to simulate.
- * @return void* NULL.
- */
 void	*live(void *p)
 {
 	t_philo	*philo;

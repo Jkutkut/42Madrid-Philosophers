@@ -28,12 +28,6 @@ static int	ft_hasany(const char *str, char c)
 	return (0);
 }
 
-/**
- * @brief Converts a string to an integer.
- * 
- * @param str String to convert.
- * @return int Number representing the string.
- */
 unsigned int	ft_atoi(char *str)
 {
 	size_t	number;

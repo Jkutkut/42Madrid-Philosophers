@@ -12,12 +12,6 @@
 
 #include "philo.h"
 
-/**
- * @brief Custom function that waits the given amount of milliseconds.
- * The use of usleep is now good enough.
- *
- * @param ms Amount of milliseconds to wait.
- */
 void	delay(long ms)
 {
 	long	end;
