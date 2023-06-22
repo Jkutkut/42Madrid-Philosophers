@@ -12,21 +12,34 @@
 
 #include "philo.h"
 
-void	take_fork(t_philo *philo, int fork_id)
+#if DEBUG
+
+static void	print_take_fork(t_philo *philo, int fork_id)
+{
+	printf(TAKE_FORK_MSG, ft_getmillis(philo), philo->id + 1, fork_id);
+}
+
+#else
+
+static void	print_take_fork(t_philo *philo, int fork_id)
+{
+	(void) fork_id;
+	printf(TAKE_FORK_MSG, ft_getmillis(philo), philo->id + 1);
+}
+
+#endif
+
+static void	take_fork(t_philo *philo, int fork_id)
 {
 	pthread_mutex_lock(&philo->info->philos[fork_id].fork_mtx);
 	if (simulation_ended(philo))
 		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
-	if (DEBUG)
-		printf(TAKE_FORK_MSG, YELLOW, ft_getmillis(philo), NC, philo->id + 1,
-			fork_id);
-	else
-		printf(TAKE_FORK_MSG_CLASSIC, ft_getmillis(philo), philo->id + 1);
+	print_take_fork(philo, fork_id);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }
 
-void	double_sword(t_philo *philo)
+static void	double_sword(t_philo *philo)
 {
 	while (!simulation_ended(philo))
 		;

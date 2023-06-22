@@ -18,24 +18,10 @@
  * @param philo Philosopher to print.
  * @param msg Message to print.
  */
-void	print_state(t_philo *philo, char *msg, char *color)
+void	print_state(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(&philo->info->print_mtx);
 	if (!simulation_ended(philo) || died(philo))
-		printf(msg, YELLOW, ft_getmillis(philo), NC, philo->id + 1, color, NC);
-	pthread_mutex_unlock(&philo->info->print_mtx);
-}
-
-/**
- * @brief Prints the state of the philosopher.
- * 
- * @param philo Philosopher to print.
- * @param msg Message to print.
- */
-// TODO update with normal version
-void	print_state_classic(t_philo *philo, char *msg)
-{
-	pthread_mutex_lock(&philo->info->print_mtx);
-	printf(msg, ft_getmillis(philo), philo->id + 1);
+		printf(msg, ft_getmillis(philo), philo->id + 1);
 	pthread_mutex_unlock(&philo->info->print_mtx);
 }

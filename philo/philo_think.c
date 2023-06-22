@@ -19,9 +19,6 @@
  */
 void	philo_think(t_philo *philo)
 {
-	if (DEBUG)
-		print_state(philo, THINK_MSG, THINK_COLOR);
-	else
-		print_state_classic(philo, THINK_MSG_CLASSIC);
+	print_state(philo, THINK_MSG);
 	philo->state = SLEEPING;
 }

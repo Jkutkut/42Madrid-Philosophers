@@ -14,8 +14,6 @@
 
 static void	print_philo_msg(t_philo *philo, char *msg)
 {
-	if (!DEBUG)
-		return ;
 	pthread_mutex_lock(&philo->info->print_mtx);
 	printf(msg, TITLE, philo->id + 1, NC, YELLOW, NC);
 	pthread_mutex_unlock(&philo->info->print_mtx);
@@ -32,7 +30,8 @@ void	*live(void *p)
 	t_philo	*philo;
 
 	philo = (t_philo *) p;
-	print_philo_msg(philo, START_MSG);
+	if (DEBUG)
+		print_philo_msg(philo, START_MSG);
 	philo->l_meal = now();
 	if (philo->id % 2)
 		delay(philo->info->t_sleep >> 2);
@@ -43,12 +42,7 @@ void	*live(void *p)
 		philo->info->actions[philo->state](philo);
 	}
 	if (died(philo) && philo->info->sb_died == philo->id)
-	{
-		if (DEBUG)
-			print_state(philo, DIE_MSG, DIE_COLOR);
-		else
-			print_state_classic(philo, DIE_MSG_CLASSIC);
-	}
+		print_state(philo, DIE_MSG);
 	if (DEBUG)
 		print_philo_msg(philo, END_MSG);
 	return (NULL);
