@@ -167,7 +167,7 @@ t_bool			died(t_philo *philo);
 long			now(void);
 long			ft_getmillis(t_philo *philo);
 void			delay(long ms);
-int				ft_atoi(char *str);
+unsigned int				ft_atoi(char *str);
 t_philo_result	set_natural(char *str, int *natural);
 
 #endif
