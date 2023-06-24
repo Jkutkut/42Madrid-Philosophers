@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:25:59 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 21:09:32 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/25 00:26:50 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,25 @@ void	*monitor(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	delay(5000);
-	printf("Philosopher %d is dead\n", philo->id);
-	// TODO
+	while (1)
+	{
+		delay(philo->info->t_die >> 8); // TODO analyze
+		if (philo->info->sb_died != INVALID)
+			break ;
+		else if (philo->n_eat == philo->info->n_times)
+			break ;
+		else if (died(philo))
+		{
+			philo->info->sb_died = philo->id;
+			sem_wait(philo->info->print_sem);
+			printf(DIE_MSG, ft_getmillis(philo), philo->id + 1);
+			sem_post(philo->info->print_sem);
+			break ;
+		}
+		// printf("philo %d says: OK!\n", philo->id + 1);
+	}
+	if (died(philo))
+		exit(1);
 	exit(0);
 }
 
@@ -27,6 +43,8 @@ void	child(t_philo *philo)
 {
 	pthread_create(&philo->thread_id, NULL, monitor, philo); // TODO handle
 	philo->l_meal = now();
+	if (philo->id % 2 == 0)
+		delay(philo->info->t_sleep >> 2);
 	while (1)
 	{
 		philo->info->actions[philo->state](philo);

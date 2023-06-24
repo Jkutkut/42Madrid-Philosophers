@@ -25,6 +25,7 @@ NAME		=	philo_bonus
 
 SRCS		=	$(NAME).c \
 				delay_bonus.c \
+				died_bonus.c \
 				error_bonus.c \
 				ft_atoi_bonus.c \
 				ft_getmillis_bonus.c \
@@ -37,6 +38,7 @@ SRCS		=	$(NAME).c \
 				proccess_args_bonus.c \
 				return_fork_bonus.c \
 				set_natural_bonus.c \
+				simulation_ended_bonus.c \
 				start_simulation_bonus.c \
 				take_fork_bonus.c
 

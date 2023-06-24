@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 21:32:40 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 23:26:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <semaphore.h>
+
+// SIGKILL
+# include <signal.h>
 
 // ******** Custom values ********
 # define PHEUDO_INFINITE -1
@@ -181,6 +184,18 @@ void			start_simulation(t_simulation *inf);
 // TODO
 
 // ******** Philo ********
+
+// TODO
+
+/**
+ * @brief Analyzes the simulation and determines if the simulation should end
+ * for the given philosopher.
+ * 
+ * @param philo Philosopher to analyze.
+ * @return TRUE if the simulation should end, FALSE otherwise.
+ */
+t_bool			simulation_ended(t_philo *philo);
+
 // ******** Actions ********
 
 /**
@@ -242,7 +257,13 @@ void			print_state(t_philo *philo, char *msg);
 
 // ******** Tools ********
 
-// TODO
+/**
+ * @brief Checks if the given philo has died.
+ * 
+ * @param philo t_philo The philosopher to check.
+ * @returns true if it died, false otherwise.
+ */
+t_bool			died(t_philo *philo);
 
 /**
  * @brief Custom function that returns the current time in milliseconds.
