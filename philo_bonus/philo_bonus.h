@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 20:48:36 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:05:51 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,28 @@ void			start_simulation(t_simulation *inf);
 
 // ******** Philo ********
 // ******** Actions ********
+
+/**
+ * @brief Function that simulates the eating of a philosopher.
+ * 
+ * @param philo Philosopher to make eat.
+ */
+void			philo_eat(t_philo *philo);
+
+/**
+ * @brief Function to simulate the thinking of a philosopher.
+ * 
+ * @param philo Philosopher to simulate.
+ */
+void			philo_think(t_philo *philo);
+
+/**
+ * @brief Function to simulate the sleep of a philosopher.
+ * 
+ * @param philo Philosopher to simulate.
+ */
+void			philo_sleep(t_philo *philo);
+
 // ******** Forks ********
 // ******** Print ********
 
@@ -195,7 +217,13 @@ void			start_simulation(t_simulation *inf);
  */
 t_philo_result	error(t_philo_result error_code);
 
-// TODO
+/**
+ * @brief Prints the state of the philosopher.
+ * 
+ * @param philo Philosopher to print.
+ * @param msg Message to print.
+ */
+void			print_state(t_philo *philo, char *msg);
 
 // ******** Tools ********
 
@@ -208,7 +236,10 @@ t_philo_result	error(t_philo_result error_code);
  */
 long			now(void);
 
-// TODO
+/**
+ * @returns The time since the start of the simulation.
+ */
+long			ft_getmillis(t_philo *philo);
 
 /**
  * @brief Custom function that waits the given amount of milliseconds.

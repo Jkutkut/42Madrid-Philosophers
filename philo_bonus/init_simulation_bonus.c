@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:02:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 20:38:59 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:01:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ static t_philo_result	set_and_return(t_simulation *inf, t_philo_result result)
 // TODO doc
 static void	base_init(t_simulation *inf)
 {
-	// TODO
-	// inf->actions[THINKING] = philo_think;
-	// inf->actions[EATING] = philo_eat;
-	// inf->actions[SLEEPING] = philo_sleep;
+	inf->actions[THINKING] = philo_think;
+	inf->actions[EATING] = philo_eat;
+	inf->actions[SLEEPING] = philo_sleep;
 	inf->sb_died = INVALID;
 }
 

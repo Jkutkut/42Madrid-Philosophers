@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:25:59 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 20:47:46 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:00:46 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ void	child(t_philo *philo)
 	philo->l_meal = now();
 	while (1)
 	{
-		// TODO
-		printf("Philosopher %d is thinking\n", philo->id);
-		delay(500);
+		philo->info->actions[philo->state](philo);
 	}
 	// TODO close thread
 }

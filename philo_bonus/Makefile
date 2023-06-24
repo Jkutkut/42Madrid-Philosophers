@@ -27,8 +27,13 @@ SRCS		=	$(NAME).c \
 				delay_bonus.c \
 				error_bonus.c \
 				ft_atoi_bonus.c \
+				ft_getmillis_bonus.c \
 				init_simulation_bonus.c \
 				now_bonus.c \
+				philo_eat_bonus.c \
+				philo_sleep_bonus.c \
+				philo_think_bonus.c \
+				print_state_bonus.c \
 				proccess_args_bonus.c \
 				set_natural_bonus.c \
 				start_simulation_bonus.c
