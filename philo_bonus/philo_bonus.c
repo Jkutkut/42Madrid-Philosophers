@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:42:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 13:08:05 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:02:21 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	main(int argc, char **argv)
 		printf("  Time to sleep: %d\n", info.t_sleep);
 		printf("  Number of times to eat: %d\n", info.n_times);
 	}
-	// if (init_simulation(&info) != SUCCESS)
-	// 	return (error(info.result_code));
+	if (init_simulation(&info) != SUCCESS)
+		return (error(info.result_code));
 	// start_simulation(&info);
 	// end_simulation(&info);
 	return (0);

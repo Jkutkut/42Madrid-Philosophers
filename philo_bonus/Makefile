@@ -16,6 +16,7 @@ COMPILE		=	$(CC) $(FLAGS)
 OS = $(shell uname -s)
 ifeq ($(OS), Linux)
 	FLAGS += -pthread
+# -lrt
 endif
 
 # Code variables
@@ -25,6 +26,8 @@ NAME		=	philo_bonus
 SRCS		=	$(NAME).c \
 				error_bonus.c \
 				ft_atoi_bonus.c \
+				init_simulation_bonus.c \
+				now_bonus.c \
 				proccess_args_bonus.c \
 				set_natural_bonus.c
 

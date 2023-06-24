@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 13:11:33 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 17:21:39 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@
 // pthread_create, pthread_detach, pthread_join
 # include <pthread.h>
 
-// TODO em_open, sem_close, sem_post, sem_wait, sem_unlink
+// sem_open, sem_close, sem_post, sem_wait, sem_unlink
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <semaphore.h>
 
 // ******** Custom values ********
 # define PHEUDO_INFINITE -1
@@ -75,7 +78,8 @@ typedef struct s_simulation
 	unsigned int	n_times;
 	int				result_code;
 	long			t0;
-	// pthread_mutex_t	print_mtx; // TODO Handle with sem
+	sem_t			*print_sem;
+	sem_t			*forks_sem;
 	struct s_philo	*philos;
 	int				sb_died;
 	void			(*actions[3])(struct s_philo *);
@@ -85,7 +89,6 @@ typedef struct s_philo
 {
 	t_simulation	*info;
 	pthread_t		thread_id;
-	// pthread_mutex_t	fork_mtx; // TODO Handle with sem
 	int				id;
 	unsigned int	n_eat;
 	t_philo_state	state;
@@ -154,6 +157,14 @@ typedef struct s_philo
  */
 t_philo_result	proccess_args(t_simulation *info, int argc, char **argv);
 
+/**
+ * @brief Creates all the necessary threads and logic to make the simulation.
+ * 
+ * @param inf Structure with all the information about the philosophers.
+ * @return int SUCCESS if everything went well, ERROR code if there was any.
+ */
+t_philo_result	init_simulation(t_simulation *info);
+
 // TODO
 
 // ******** Philo ********
@@ -174,6 +185,15 @@ t_philo_result	error(t_philo_result error_code);
 // TODO
 
 // ******** Tools ********
+
+// TODO
+
+/**
+ * @brief Custom function that returns the current time in milliseconds.
+ * 
+ * @return long Current time in milliseconds.
+ */
+long			now(void);
 
 // TODO
 
