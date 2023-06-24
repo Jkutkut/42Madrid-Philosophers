@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 17:21:39 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:48:36 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@
 
 // pthread_create, pthread_detach, pthread_join
 # include <pthread.h>
+
+// fork, waitpid, kill
+# include <sys/types.h>
+# include <sys/wait.h>
 
 // sem_open, sem_close, sem_post, sem_wait, sem_unlink
 #include <fcntl.h>
@@ -64,7 +68,8 @@ typedef enum e_philo_result
 	SUCCESS = 0,
 	ERROR_ARGS_CODE = 1,
 	ERROR_NANATURAL_CODE = 2,
-	ERROR_MALLOC_CODE = 3
+	ERROR_MALLOC_CODE = 3,
+	ERROR_SEM_CODE = 4
 }	t_philo_result;
 
 // ******** Custom structs ********
@@ -81,6 +86,7 @@ typedef struct s_simulation
 	sem_t			*print_sem;
 	sem_t			*forks_sem;
 	struct s_philo	*philos;
+	pid_t			*pids;
 	int				sb_died;
 	void			(*actions[3])(struct s_philo *);
 }	t_simulation;
@@ -102,6 +108,7 @@ typedef struct s_philo
 # define ERROR_ARGS "./philo_bonus <philos> <t_die> <t_eat> <t_sleep> [times]\n"
 # define ERROR_NANATURAL "All arguments must be positive integers > 0.\n"
 # define ERROR_MALLOC "Malloc failed.\n"
+# define ERROR_SEM "Semaphore failed.\n"
 
 // ******** Custom colors ********
 # define NC "\033[0m"
@@ -165,6 +172,12 @@ t_philo_result	proccess_args(t_simulation *info, int argc, char **argv);
  */
 t_philo_result	init_simulation(t_simulation *info);
 
+/**
+ * @brief Starts the simulation in all threads.
+ * @param inf Simulation structure with all the information.
+ */
+void			start_simulation(t_simulation *inf);
+
 // TODO
 
 // ******** Philo ********
@@ -196,6 +209,14 @@ t_philo_result	error(t_philo_result error_code);
 long			now(void);
 
 // TODO
+
+/**
+ * @brief Custom function that waits the given amount of milliseconds.
+ * The use of usleep is now good enough.
+ *
+ * @param ms Amount of milliseconds to wait.
+ */
+void			delay(long ms);
 
 /**
  * @brief Converts a string to an unsigned integer.

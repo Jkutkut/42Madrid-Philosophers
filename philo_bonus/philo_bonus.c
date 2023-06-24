@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:42:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 17:02:21 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:37:08 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,13 @@ int	main(int argc, char **argv)
 	}
 	if (init_simulation(&info) != SUCCESS)
 		return (error(info.result_code));
-	// start_simulation(&info);
+	start_simulation(&info);
 	// end_simulation(&info);
+	unsigned int i = 0;
+	while (i < info.n_philo)
+	{
+		waitpid(info.pids[i], NULL, 0);
+		++i;
+	}
 	return (0);
 }

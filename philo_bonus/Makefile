@@ -24,12 +24,14 @@ endif
 NAME		=	philo_bonus
 
 SRCS		=	$(NAME).c \
+				delay_bonus.c \
 				error_bonus.c \
 				ft_atoi_bonus.c \
 				init_simulation_bonus.c \
 				now_bonus.c \
 				proccess_args_bonus.c \
-				set_natural_bonus.c
+				set_natural_bonus.c \
+				start_simulation_bonus.c
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 

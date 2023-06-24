@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:02:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 17:13:03 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:38:59 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,15 @@
 #define SEM_FORKS "/forks"
 #define SEM_PRINT "/print"
 
-void	base_init(t_simulation *inf)
+// TODO doc
+static t_philo_result	set_and_return(t_simulation *inf, t_philo_result result)
+{
+	inf->result_code = result;
+	return (result);
+}
+
+// TODO doc
+static void	base_init(t_simulation *inf)
 {
 	// TODO
 	// inf->actions[THINKING] = philo_think;
@@ -30,16 +38,15 @@ t_philo_result	init_simulation(t_simulation *inf)
 
 	base_init(inf);
 	inf->philos = (t_philo *) malloc(sizeof(t_philo) * inf->n_philo);
-	if (inf->philos == NULL)
-	{
-		inf->result_code = ERROR_MALLOC_CODE;
-		return (inf->result_code);
-	}
-	sem_unlink(SEM_PRINT); // TODO error handling
-	sem_unlink(SEM_FORKS); // TODO error handling
-	inf->print_sem = sem_open(SEM_PRINT, O_CREAT, 0644, 1); // TODO error handling
-	inf->forks_sem = sem_open(SEM_FORKS, O_CREAT, 0644, inf->n_philo); // TODO error handling
-	inf->t0 = now();
+	inf->pids = (pid_t *) malloc(sizeof(pid_t) * inf->n_philo);
+	if (inf->philos == NULL || inf->pids == NULL)
+		return (set_and_return(inf, ERROR_MALLOC_CODE));
+	sem_unlink(SEM_PRINT);
+	sem_unlink(SEM_FORKS);
+	inf->print_sem = sem_open(SEM_PRINT, O_CREAT, 0644, 1);
+	inf->forks_sem = sem_open(SEM_FORKS, O_CREAT, 0644, inf->n_philo);
+	if (inf->print_sem == SEM_FAILED || inf->forks_sem == SEM_FAILED)
+		return (set_and_return(inf, ERROR_SEM_CODE)); // TODO handle
 	i = 0;
 	while (i < inf->n_philo)
 	{
