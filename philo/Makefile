@@ -10,8 +10,13 @@ TITLE		=	\033[38;5;33m
 
 # Compile variables
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -L .
 COMPILE		=	$(CC) $(FLAGS)
+
+OS = $(shell uname -s)
+ifeq ($(OS), Linux)
+	FLAGS += -pthread
+endif
 
 # Code variables
 
@@ -43,20 +48,15 @@ SRCS		=	$(NAME).c \
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 
-# Bonus
-# BONUS_SRCS	=	
-# BONUS_OBJS	=	${BONUS_SRCS:%.c=bin/%.o}
-
-
 # Makefile logic
 all: $(NAME)
 
 debug: FLAGS += -D DEBUG_ON
 debug: $(NAME)
 
-$(NAME):	$(LIB) $(OBJS)
+$(NAME):	$(OBJS)
 	@echo "\n${TITLE}Compiling ${YELLOW}$(NAME)${NC}\c"
-	@$(COMPILE) $(OBJS) $(LIB) -o $(NAME)
+	@$(COMPILE) $(OBJS) -o $(NAME)
 	@echo "${LGREEN} [OK]${NC}\n"
 
 bin/%.o: %.c
