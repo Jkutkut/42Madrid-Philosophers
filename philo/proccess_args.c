@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 20:01:21 by jre-gonz          #+#    #+#             */
-/*   Updated: 2022/06/19 18:56:21 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:30:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ t_philo_result	proccess_args(t_simulation *info, int argc, char **argv)
 	int	i;
 	int	*arguments;
 
+	info->result_code = ERROR_ARGS_CODE;
 	if (argc < 5 || argc > 6)
-		return (ERROR_ARGS_CODE);
+		return (info->result_code);
 	info->n_times = PHEUDO_INFINITE;
 	arguments = (int *) info;
 	i = 0;
