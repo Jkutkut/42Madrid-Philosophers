@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:25:59 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 21:00:46 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:09:32 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*monitor(void *arg)
 
 void	child(t_philo *philo)
 {
-	pthread_create(&philo->thread_id, NULL, monitor, philo);
+	pthread_create(&philo->thread_id, NULL, monitor, philo); // TODO handle
 	philo->l_meal = now();
 	while (1)
 	{

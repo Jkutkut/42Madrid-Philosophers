@@ -35,8 +35,10 @@ SRCS		=	$(NAME).c \
 				philo_think_bonus.c \
 				print_state_bonus.c \
 				proccess_args_bonus.c \
+				return_fork_bonus.c \
 				set_natural_bonus.c \
-				start_simulation_bonus.c
+				start_simulation_bonus.c \
+				take_fork_bonus.c
 
 OBJS		=	${SRCS:%.c=bin/%.o}
 

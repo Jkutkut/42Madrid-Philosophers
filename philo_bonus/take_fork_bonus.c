@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_state_bonus.c                                :+:      :+:    :+:   */
+/*   take_fork_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 21:02:06 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 21:11:21 by jre-gonz         ###   ########.fr       */
+/*   Created: 2023/06/24 21:20:22 by jre-gonz          #+#    #+#             */
+/*   Updated: 2023/06/24 21:33:26 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	print_state(t_philo *philo, char *msg)
+void	take_fork(t_philo *philo)
 {
-	sem_wait(philo->info->print_sem);
-	// if (!simulation_ended(philo) || died(philo)) // TODO
-		printf(msg, ft_getmillis(philo), philo->id + 1);
-	sem_post(philo->info->print_sem);
+	sem_wait(philo->info->forks_sem);
+	// if (simulation_ended(philo)) // TODO
+	// 	return ;
+	print_state(philo, TAKE_FORK_MSG);
 }

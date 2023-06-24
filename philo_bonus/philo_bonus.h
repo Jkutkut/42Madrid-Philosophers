@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 21:05:51 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:32:40 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,14 +126,14 @@ typedef struct s_philo
 
 # ifdef DEBUG_ON
 #  define DEBUG 1
-#  define TAKE_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has taken a fork   (%d).\n" // TODO
+#  define TAKE_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has taken a fork.\n" // TODO
 #  define EAT_MSG   "[\033[1;33m%08ld\033[0m] %d is \033[1;33meating\033[0m.\n"
 #  define SLEEP_MSG "[\033[1;33m%08ld\033[0m] %d is \033[1;34msleeping\033[0m.\n"
 #  define THINK_MSG "[\033[1;33m%08ld\033[0m] %d is \033[1;32mthinking\033[0m.\n"
 #  define DIE_MSG   "[\033[1;33m%08ld\033[0m] %d \033[1;31mdied\033[0m.\n"
 // -----------
 #  define START_MSG ""
-#  define RETURN_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has dropped a fork (%d).\n" // TODO
+#  define RETURN_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has dropped a fork.\n" // TODO
 #  define END_MSG ""
 # else
 #  define DEBUG 0
@@ -205,6 +205,21 @@ void			philo_think(t_philo *philo);
 void			philo_sleep(t_philo *philo);
 
 // ******** Forks ********
+
+/**
+ * @brief Obtains the selected fork for the given philo.
+ */
+void			take_fork(t_philo *philo);
+
+/**
+ * @brief Returns to the table a fork.
+ * 
+ * @param philo Philosopher with the fork.
+ */
+void			return_fork(t_philo *philo);
+
+// TODO
+
 // ******** Print ********
 
 /**
