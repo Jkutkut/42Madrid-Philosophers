@@ -10,7 +10,7 @@ TITLE		=	\033[38;5;33m
 
 # Compile variables
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror -L .
+FLAGS		=	-Wall -Wextra -Werror
 COMPILE		=	$(CC) $(FLAGS)
 
 OS = $(shell uname -s)
