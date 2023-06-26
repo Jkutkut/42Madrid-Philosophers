@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:42:36 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 23:21:57 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:26:09 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	int				status;
 	while (i < info.n_philo)
 	{
-		waitpid(info.pids[i], &status, 0);
+		waitpid(-1, &status, 0);
 		if (status != 0)
 		{
 			i = 0;
