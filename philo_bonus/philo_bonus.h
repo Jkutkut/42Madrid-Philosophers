@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 23:26:08 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:43:15 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,9 @@ typedef struct s_philo
 
 // ******** Custom messages ********
 
+#define SEM_FORKS "/forks"
+#define SEM_PRINT "/print"
+
 // Error messages
 # define ERROR "philo_bonus \033[1;31merror\033[0m:\n  "
 # define ERROR_ARGS "./philo_bonus <philos> <t_die> <t_eat> <t_sleep> [times]\n"
@@ -181,7 +184,13 @@ t_philo_result	init_simulation(t_simulation *info);
  */
 void			start_simulation(t_simulation *inf);
 
-// TODO
+/**
+ * @brief Joins all the threads and frees all the allocated memory.
+ * Note: pthread_join waits for all threads to end.
+ * 
+ * @param info Structure with all the information about the philosophers.
+ */
+void			end_simulation(t_simulation *info);
 
 // ******** Philo ********
 

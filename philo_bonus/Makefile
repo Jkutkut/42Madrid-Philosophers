@@ -26,6 +26,7 @@ NAME		=	philo_bonus
 SRCS		=	$(NAME).c \
 				delay_bonus.c \
 				died_bonus.c \
+				end_simulation_bonus.c \
 				error_bonus.c \
 				ft_atoi_bonus.c \
 				ft_getmillis_bonus.c \

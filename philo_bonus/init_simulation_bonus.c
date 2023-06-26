@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_simulation_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:02:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 21:01:20 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:35:02 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
-
-#define SEM_FORKS "/forks"
-#define SEM_PRINT "/print"
 
 // TODO doc
 static t_philo_result	set_and_return(t_simulation *inf, t_philo_result result)

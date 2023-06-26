@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:25:59 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/26 16:24:35 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:37:20 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ void	*monitor(void *arg)
 			philo->info->sb_died = philo->id;
 			sem_wait(philo->info->print_sem);
 			printf(DIE_MSG, ft_getmillis(philo), philo->id + 1);
-			// sem_post(philo->info->print_sem);
 			break ;
 		}
-		// printf("philo %d says: OK!\n", philo->id + 1);
 	}
 	if (died(philo))
 		exit(1);
