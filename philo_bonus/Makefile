@@ -35,6 +35,7 @@ SRCS		=	$(NAME).c \
 				philo_eat_bonus.c \
 				philo_sleep_bonus.c \
 				philo_think_bonus.c \
+				print_simulation_bonus.c \
 				print_state_bonus.c \
 				proccess_args_bonus.c \
 				return_fork_bonus.c \

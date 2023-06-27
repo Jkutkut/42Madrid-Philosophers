@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:02:48 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/26 16:35:02 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:15:38 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_philo_result	init_simulation(t_simulation *inf)
 	inf->print_sem = sem_open(SEM_PRINT, O_CREAT, 0644, 1);
 	inf->forks_sem = sem_open(SEM_FORKS, O_CREAT, 0644, inf->n_philo);
 	if (inf->print_sem == SEM_FAILED || inf->forks_sem == SEM_FAILED)
-		return (set_and_return(inf, ERROR_SEM_CODE)); // TODO handle
+		return (set_and_return(inf, ERROR_SEM_CODE));
 	i = 0;
 	while (i < inf->n_philo)
 	{

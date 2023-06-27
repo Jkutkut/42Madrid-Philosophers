@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/26 16:43:15 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:29:55 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,13 @@ typedef struct s_philo
 #  define START_MSG ""
 #  define RETURN_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has dropped a fork.\n" // TODO
 #  define END_MSG ""
+// -----------
+#  define PSTATE_TITLE "Philo info:\n"
+#  define PSTATE_NBR_PHI "  Number of philosophers: %d\n"
+#  define PSTATE_T2D "  Time to die: %d\n"
+#  define PSTATE_T2E "  Time to eat: %d\n"
+#  define PSTATE_T2S "  Time to sleep: %d\n"
+#  define PSTATE_NBR_T2E "  Number of times to eat: %d\n\n"
 # else
 #  define DEBUG 0
 #  define TAKE_FORK_MSG "%011ld %d has taken a fork\n"
@@ -263,6 +270,14 @@ t_philo_result	error(t_philo_result error_code);
  * @param msg Message to print.
  */
 void			print_state(t_philo *philo, char *msg);
+
+/**
+ * @brief If in debug mode, prints the simulation's information.
+ * @note In normal mode, does nothing.
+ * 
+ * @param info The simulation structure.
+ */
+void			print_simulation(t_simulation info);
 
 // ******** Tools ********
 
