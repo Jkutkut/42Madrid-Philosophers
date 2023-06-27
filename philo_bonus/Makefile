@@ -31,6 +31,8 @@ SRCS		=	$(NAME).c \
 				ft_atoi_bonus.c \
 				ft_getmillis_bonus.c \
 				init_simulation_bonus.c \
+				launch_philo_bonus.c \
+				monitor_bonus.c \
 				now_bonus.c \
 				philo_eat_bonus.c \
 				philo_sleep_bonus.c \
@@ -75,10 +77,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all re fclean clean
+.PHONY: all re fclean clean debug used_code files
 
 used_code: $(NAME)
 	nm -u $(NAME)
 
-files: # TODO remove
+files:
 	for f in $(ls *.c); do echo "$f \\"; done

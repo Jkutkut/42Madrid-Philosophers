@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 16:31:34 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/27 17:06:47 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:57:18 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ static int	get_exit_value(int process_code)
 
 void	end_simulation(t_simulation *info)
 {
-	unsigned int	i = 0;
+	unsigned int	i;
 	int				status;
+
+	i = 0;
 	while (i < info->n_philo)
 	{
 		waitpid(-1, &status, 0);
@@ -51,5 +53,4 @@ void	end_simulation(t_simulation *info)
 	sem_unlink(SEM_PRINT);
 	free(info->philos);
 	free(info->pids);
-	// system("leaks -q philo_bonus"); // TODO remove
 }

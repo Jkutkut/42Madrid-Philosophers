@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_simulation_bonus.c                           :+:      :+:    :+:   */
+/*   monitor_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/24 17:25:59 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/27 18:10:41 by jre-gonz         ###   ########.fr       */
+/*   Created: 2023/06/27 18:02:06 by jre-gonz          #+#    #+#             */
+/*   Updated: 2023/06/27 18:09:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	start_simulation(t_simulation *inf)
+void	*monitor(void *arg)
 {
-	unsigned int	i;
+	t_philo	*philo;
 
-	inf->t0 = now();
-	i = 0;
-	while (i < inf->n_philo)
+	philo = (t_philo *)arg;
+	while (1)
 	{
-		inf->pids[i] = fork();
-		if (inf->pids[i] == -1)
+		delay(philo->info->t_die >> 4);
+		if (philo->n_eat == philo->info->n_times)
+			exit(0);
+		else if (died(philo))
+		{
+			sem_wait(philo->info->print_sem);
+			printf(DIE_MSG, ft_getmillis(philo), philo->id + 1);
 			exit(1);
-		if (inf->pids[i] == 0)
-			launch_philo(&inf->philos[i]);
-		++i;
+		}
 	}
 }

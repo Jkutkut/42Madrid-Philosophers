@@ -6,12 +6,12 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/27 17:53:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 18:11:41 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILO_BONUS_H
+# define PHILO_BONUS_H
 
 // ******** Allowed functions ********
 
@@ -38,9 +38,9 @@
 # include <sys/wait.h>
 
 // sem_open, sem_close, sem_post, sem_wait, sem_unlink
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <semaphore.h>
+# include <fcntl.h>
+# include <sys/stat.h>
+# include <semaphore.h>
 
 // SIGKILL
 # include <signal.h>
@@ -105,8 +105,8 @@ typedef struct s_philo
 
 // ******** Custom messages ********
 
-#define SEM_FORKS "/forks"
-#define SEM_PRINT "/print"
+# define SEM_FORKS "/forks"
+# define SEM_PRINT "/print"
 
 // Error messages
 # define ERROR "philo_bonus \033[1;31merror\033[0m:\n  "
@@ -131,14 +131,14 @@ typedef struct s_philo
 
 # ifdef DEBUG_ON
 #  define DEBUG 1
-#  define TAKE_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has taken a fork.\n" // TODO
+#  define TAKE_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has taken a fork.\n"
 #  define EAT_MSG   "[\033[1;33m%08ld\033[0m] %d is \033[1;33meating\033[0m.\n"
 #  define SLEEP_MSG "[\033[1;33m%08ld\033[0m] %d is \033[1;34msleeping\033[0m.\n"
 #  define THINK_MSG "[\033[1;33m%08ld\033[0m] %d is \033[1;32mthinking\033[0m.\n"
 #  define DIE_MSG   "[\033[1;33m%08ld\033[0m] %d \033[1;31mdied\033[0m.\n"
 // -----------
 #  define START_MSG ""
-#  define RETURN_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has dropped a fork.\n" // TODO
+#  define RETURN_FORK_MSG "[\033[1;33m%08ld\033[0m] %d has dropped a fork.\n"
 #  define END_MSG ""
 // -----------
 #  define PSTATE_TITLE "Philo info:\n"
@@ -200,7 +200,17 @@ void			end_simulation(t_simulation *info);
 
 // ******** Philo ********
 
-// TODO
+/**
+ * @brief Starts the philosopher simulation with the monitor system.
+ * @note This function should be running on a custom subprocess.
+ */
+void			launch_philo(t_philo *philo);
+
+/**
+ * @brief Monitors the given philo in the current subprocess.
+ * @note Ends the current subproccess if the philo ended or died.
+ */
+void			*monitor(void *arg);
 
 /**
  * @brief Analyzes the simulation and determines if the simulation should end
@@ -247,8 +257,6 @@ void			take_fork(t_philo *philo);
  * @param philo Philosopher with the fork.
  */
 void			return_fork(t_philo *philo);
-
-// TODO
 
 // ******** Print ********
 
