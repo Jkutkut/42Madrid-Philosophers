@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo_eat_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 20:58:32 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/25 00:19:16 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:05:04 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	philo_eat(t_philo *philo)
 		return ;
 	}
 	print_state(philo, EAT_MSG);
-	philo->n_eat++;
 	philo->l_meal = now();
 	delay(philo->info->t_eat);
 	return_fork(philo); // TODO check
 	return_fork(philo);
+	philo->n_eat++;
 	philo->state = THINKING;
 }

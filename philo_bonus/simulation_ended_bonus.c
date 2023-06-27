@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation_ended_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jre-gonz <jre-gonz@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 22:37:05 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/24 23:40:07 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:06:11 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	simulation_ended(t_philo *philo)
 {
-	if (philo->info->sb_died != INVALID)
+	if (philo->info->sb_died != INVALID) // TODO this does nothing now :S
 		return (TRUE);
 	if (philo->n_eat == philo->info->n_times)
 		return (TRUE);
