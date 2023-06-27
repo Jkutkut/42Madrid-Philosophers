@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 12:51:12 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/27 17:29:55 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:53:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ typedef struct s_simulation
 	sem_t			*forks_sem;
 	struct s_philo	*philos;
 	pid_t			*pids;
-	int				sb_died;
 	void			(*actions[3])(struct s_philo *);
 }	t_simulation;
 
