@@ -1,9 +1,0 @@
-philo/philo
-bin
-*.out
-*.swp
-
-tester*
-*Tester*
-socrates
-
