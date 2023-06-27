@@ -6,13 +6,11 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 13:10:20 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/27 17:14:25 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 18:20:33 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
-
-// TODO const array?
 
 t_philo_result	error(t_philo_result error_code)
 {

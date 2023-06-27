@@ -6,7 +6,7 @@
 /*   By: jre-gonz <jre-gonz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:02:06 by jre-gonz          #+#    #+#             */
-/*   Updated: 2023/06/27 18:09:52 by jre-gonz         ###   ########.fr       */
+/*   Updated: 2023/06/27 18:17:52 by jre-gonz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*monitor(void *arg)
 	philo = (t_philo *)arg;
 	while (1)
 	{
-		delay(philo->info->t_die >> 4);
+		delay(philo->info->t_die >> 5);
 		if (philo->n_eat == philo->info->n_times)
 			exit(0);
 		else if (died(philo))
